@@ -35,6 +35,107 @@
         html {
             scroll-behavior: smooth;
         }
+
+        /* ヘッダーテキストの初期状態（アニメーション前） */
+        .hero-text-container {
+            opacity: 0;
+            transform: scale(1.25);
+            filter: blur(10px);
+        }
+
+        /* ズームアウト・フェードインアニメーション */
+        @keyframes hero-zoom-out {
+            0% {
+                opacity: 0;
+                transform: scale(1.25);
+                filter: blur(10px);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+                filter: blur(0);
+            }
+        }
+
+        .animate-hero-zoom {
+            animation: hero-zoom-out 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        /* 小鳥の飛行アニメーション（左から右へ） */
+        @keyframes birds-fly {
+            0% {
+                left: -200px;
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+            100% {
+                left: 110vw;
+                transform: translateY(-10px);
+            }
+        }
+
+        /* 小鳥の飛行アニメーション（右から左へ） */
+        @keyframes birds-fly-rev {
+            0% {
+                right: -300px;
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-30px);
+            }
+            100% {
+                right: 110vw;
+                transform: translateY(-15px);
+            }
+        }
+
+        .bird {
+            position: absolute;
+            left: -200px; /* アニメーション開始前も画面外に配置 */
+            pointer-events: none;
+            z-index: 5;
+            animation: birds-fly 15s linear infinite;
+            opacity: 0.8;
+            filter: brightness(0.9);
+        }
+
+        .bird-rev {
+            position: absolute;
+            right: -300px; /* 右画面外に配置 */
+            pointer-events: none;
+            z-index: 5;
+            animation: birds-fly-rev 12s linear infinite;
+            opacity: 0.75;
+            filter: brightness(0.9);
+        }
+
+        /* 個別の鳥の設定（左から右） */
+        .bird-1 { top: 15%; width: 80px; animation-delay: 0s; animation-duration: 18s; }
+        .bird-2 { top: 35%; width: 60px; animation-delay: 4s; animation-duration: 22s; }
+        .bird-3 { top: 20%; width: 70px; animation-delay: 9s; animation-duration: 16s; }
+        .bird-4 { top: 45%; width: 50px; animation-delay: 13s; animation-duration: 25s; }
+
+        /* 個別の鳥の設定（右から左: flybird2.gif）サイズを2倍に変更 */
+        .bird-rev-1 { top: 25%; width: 140px; animation-delay: 2s; animation-duration: 14s; }
+        .bird-rev-2 { top: 55%; width: 110px; animation-delay: 10s; animation-duration: 11s; }
+
+        /* tori.gif のスタイル設定 */
+        #tori-idle {
+            position: absolute;
+            bottom: -40px; /* 開始位置をさらに下げる */
+            left: 55px;   /* VideoとGraphicの間に合わせる位置 */
+            transform: scale(1.25); /* 1.5倍から1.25倍に変更 */
+            pointer-events: none;
+            z-index: 30;
+            transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+            opacity: 0;
+        }
+        #tori-idle.show {
+            bottom: -5px; /* ラインから少しだけ出す（位置を下げる） */
+            opacity: 1;
+        }
     </style>
 </head>
 <body class="transition-colors duration-300 text-zinc-900 dark:text-zinc-100">
@@ -57,13 +158,31 @@
     </div>
 
     <!-- Hero Header with Background and Fade Effect -->
-    <header id="hero-header" class="relative py-32 text-center bg-cover bg-center bg-no-repeat z-10" style="background-image: url('header.png');">
+    <header id="hero-header" class="relative py-32 text-center bg-cover bg-center bg-no-repeat z-10 overflow-hidden" style="background-image: url('header.png');">
         <!-- Overlay for readability -->
         <div class="absolute inset-0 bg-white/20 dark:bg-black/30"></div>
         
-        <div class="relative z-10">
+        <!-- Bird Animations using flybird.gif!qk277 (Left to Right) -->
+        <img src="flybird.gif!qk277" class="bird bird-1" alt="flying bird">
+        <img src="flybird.gif!qk277" class="bird bird-2" alt="flying bird">
+        <img src="flybird.gif!qk277" class="bird bird-3" alt="flying bird">
+        <img src="flybird.gif!qk277" class="bird bird-4" alt="flying bird">
+
+        <!-- New Bird Animations using flybird2.gif (Right to Left) -->
+        <img src="flybird2.gif" class="bird-rev bird-rev-1" alt="flying bird reverse">
+        <img src="flybird2.gif" class="bird-rev bird-rev-2" alt="flying bird reverse">
+
+        <!-- Animated content block -->
+        <div class="relative z-10 hero-text-container animate-hero-zoom">
             <h1 class="text-6xl md:text-8xl font-serif mb-2 tracking-tighter">Portfolio</h1>
             <p class="text-sm tracking-[0.3em] uppercase text-zinc-600 dark:text-zinc-300">Nagano Takumi</p>
+        </div>
+
+        <!-- tori.gif (Idle animation) aligned with navigation -->
+        <div class="absolute bottom-0 left-0 w-full h-full pointer-events-none">
+            <div class="max-w-6xl mx-auto px-4 relative h-full">
+                <img src="tori.gif" id="tori-idle" alt="tori" width="60">
+            </div>
         </div>
     </header>
 
@@ -75,6 +194,7 @@
                 <a href="video-editing.html" class="hover:text-green-600 transition-colors">Video</a>
                 <a href="graphic-design.html" class="hover:text-green-600 transition-colors">Graphic</a>
                 <a href="app-development.html" class="hover:text-green-600 transition-colors">App</a>
+                <a href="hobbies.html" class="hover:text-green-600 transition-colors">Hobby</a>
             </div>
 
             <div class="flex items-center space-x-6">
@@ -111,7 +231,7 @@
                                 </div>
                                 <h2 class="text-3xl md:text-5xl font-serif mb-4 leading-tight">動画編集 / Video Editing</h2>
                                 <p class="text-zinc-300 text-sm md:text-base max-w-xl mb-6 line-clamp-2">
-                                    YouTube動画からプロモーションビデオまで、ストーリーテリングを重視した映像制作。Premiere ProやAfter Effectsを駆使した高品質な編集を提供します。
+                                    YouTube動画からプロモーションビデオまで、ストーリーテリングを重視した映像制作。Premiere ProやCapCutをメインに使用し、高品質な編集を提供します。
                                 </p>
                                 <div class="flex items-center justify-between">
                                    <a href="video-editing.html" class="flex items-center text-xs uppercase tracking-widest font-bold border-b border-white pb-1 hover:text-green-400 hover:border-green-400 transition-all">
@@ -203,6 +323,30 @@
                                 </a>
                             </div>
                         </div>
+
+                        <!-- Hobbies/Daily Life Widget -->
+                        <a href="hobbies.html" class="block rounded-2xl overflow-hidden bg-zinc-50/90 dark:bg-zinc-900/90 shadow-xl backdrop-blur-md group cursor-pointer transition-transform duration-300 hover:scale-[1.02]">
+                            <div class="h-48 overflow-hidden relative">
+                                <img 
+                                    src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&q=80&w=800" 
+                                    alt="Fishing" 
+                                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                />
+                                <div class="absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                                    <span class="text-white text-xs font-bold tracking-widest uppercase border-b border-white pb-1">詳細を見る</span>
+                                </div>
+                            </div>
+                            <div class="p-6 space-y-3">
+                                <div class="flex justify-between items-center">
+                                    <h4 class="text-xs tracking-[0.2em] font-bold uppercase text-green-600">Hobbies & Life</h4>
+                                    <i data-lucide="arrow-right" class="w-4 h-4 text-zinc-400 group-hover:text-green-600 transition-colors"></i>
+                                </div>
+                                <h5 class="text-lg font-serif">趣味・日常生活</h5>
+                                <p class="text-xs leading-relaxed text-zinc-600 dark:text-zinc-400">
+                                    趣味の釣りや、熊本での何気ない日常生活のひとコマ。クリエイティブな仕事の合間に、自然の中で過ごすリフレッシュの時間は私にとって欠かせない大切な活力源です。
+                                </p>
+                            </div>
+                        </a>
                     </aside>
 
                 </div>
@@ -273,10 +417,28 @@
             lucide.createIcons();
         });
 
-        // ヘッダーのフェードアウト用エレメント
+        // エレメント取得
         const heroHeader = document.getElementById('hero-header');
         const stickyNav = document.getElementById('sticky-nav');
         const scrollTopBtn = document.getElementById('scroll-top-btn');
+        const toriIdle = document.getElementById('tori-idle');
+
+        // アイドル時（無操作時）の鳥のタイマー
+        let idleTimer;
+
+        const showTori = () => {
+            toriIdle.classList.add('show');
+        };
+
+        const hideTori = () => {
+            toriIdle.classList.remove('show');
+            resetIdleTimer();
+        };
+
+        const resetIdleTimer = () => {
+            clearTimeout(idleTimer);
+            idleTimer = setTimeout(showTori, 2000);
+        };
 
         // スクロール検知
         window.addEventListener('scroll', () => {
@@ -298,7 +460,16 @@
                 scrollTopBtn.classList.add('translate-y-12', 'opacity-0');
                 scrollTopBtn.classList.remove('translate-y-0', 'opacity-100');
             }
+
+            // 鳥を隠す
+            hideTori();
         });
+
+        // 画面クリック検知
+        window.addEventListener('click', hideTori);
+
+        // 初回タイマー開始
+        resetIdleTimer();
 
         // トップへ戻る
         scrollTopBtn.addEventListener('click', () => {
