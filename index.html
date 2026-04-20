@@ -37,10 +37,10 @@
         }
     </style>
 </head>
-<body class="transition-colors duration-300 bg-white text-zinc-900 dark:bg-zinc-950 dark:text-zinc-100">
+<body class="transition-colors duration-300 text-zinc-900 dark:text-zinc-100">
 
     <!-- Top Bar -->
-    <div id="top-bar" class="w-full py-2 border-b transition-colors bg-zinc-50 border-zinc-200 dark:bg-zinc-900 dark:border-zinc-800">
+    <div id="top-bar" class="w-full py-2 border-b transition-colors bg-zinc-50/100 dark:bg-zinc-900/100 border-zinc-200 dark:border-zinc-800 relative z-20">
         <div class="max-w-6xl mx-auto px-4 flex justify-between items-center text-xs tracking-widest uppercase">
             <div class="flex space-x-6 hidden md:flex">
                 <!-- Links removed as requested -->
@@ -56,10 +56,15 @@
         </div>
     </div>
 
-    <!-- Hero Header -->
-    <header class="py-16 text-center">
-        <h1 class="text-6xl md:text-8xl font-serif mb-2 tracking-tighter">Portfolio</h1>
-        <p class="text-sm tracking-[0.3em] uppercase text-zinc-500">Nagano Takumi</p>
+    <!-- Hero Header with Background and Fade Effect -->
+    <header id="hero-header" class="relative py-32 text-center bg-cover bg-center bg-no-repeat z-10" style="background-image: url('header.png');">
+        <!-- Overlay for readability -->
+        <div class="absolute inset-0 bg-white/20 dark:bg-black/30"></div>
+        
+        <div class="relative z-10">
+            <h1 class="text-6xl md:text-8xl font-serif mb-2 tracking-tighter">Portfolio</h1>
+            <p class="text-sm tracking-[0.3em] uppercase text-zinc-600 dark:text-zinc-300">Nagano Takumi</p>
+        </div>
     </header>
 
     <!-- Sticky Navigation -->
@@ -78,129 +83,135 @@
                     <i id="dark-icon" data-lucide="moon"></i>
                     <i id="light-icon" data-lucide="sun" class="hidden"></i>
                 </button>
-                <!-- Search icon section removed -->
             </div>
         </div>
     </nav>
 
-    <main class="max-w-6xl mx-auto px-4 py-12">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
-            
-            <!-- Main Feed -->
-            <div class="lg:col-span-8 space-y-16">
-                
-                <!-- Featured: 動画編集 -->
-                <article class="relative group overflow-hidden rounded-2xl shadow-2xl transition-transform duration-500 hover:-translate-y-1">
-                    <img 
-                        src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&q=80&w=1200" 
-                        alt="Video Editing" 
-                        class="w-full h-[500px] object-cover transition-transform duration-700 group-hover:scale-105"
-                    />
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8 md:p-12 text-white">
-                        <div class="flex gap-2 mb-4">
-                            <span class="bg-green-600 text-[10px] px-2 py-1 uppercase tracking-tighter font-bold">Creative</span>
-                            <span class="bg-green-600 text-[10px] px-2 py-1 uppercase tracking-tighter font-bold">Video</span>
-                        </div>
-                        <h2 class="text-3xl md:text-5xl font-serif mb-4 leading-tight">動画編集 / Video Editing</h2>
-                        <p class="text-zinc-300 text-sm md:text-base max-w-xl mb-6 line-clamp-2">
-                            YouTube動画からプロモーションビデオまで、ストーリーテリングを重視した映像制作。Premiere ProやAfter Effectsを駆使した高品質な編集を提供します。
-                        </p>
-                        <div class="flex items-center justify-between">
-                           <a href="video-editing.html" class="flex items-center text-xs uppercase tracking-widest font-bold border-b border-white pb-1 hover:text-green-400 hover:border-green-400 transition-all">
-                            詳細を見る <i data-lucide="external-link" class="ml-2 w-3 h-3"></i>
-                          </a>
-                          <span class="text-xs text-zinc-400">2024-03-20</span>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Grid Posts -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <!-- デザイン -->
-                    <article class="flex flex-col space-y-4 group">
-                        <div class="overflow-hidden rounded-xl aspect-[4/3]">
-                            <a href="graphic-design.html">
-                                <img 
-                                    src="https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&q=80&w=800" 
-                                    alt="Design" 
-                                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                                />
-                            </a>
-                        </div>
-                        <div class="space-y-2">
-                            <div class="flex items-center text-[10px] uppercase tracking-widest text-green-600 font-bold">
-                                Design • Creative
+    <!-- Main Content Area with background image 'back.png' -->
+    <div class="bg-[url('back.png')] bg-cover bg-center bg-fixed">
+        <!-- Semi-transparent overlay -->
+        <div class="bg-white/40 dark:bg-zinc-950/40 backdrop-blur-[2px]">
+            <main class="max-w-6xl mx-auto px-4 py-12">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                    
+                    <!-- Main Feed -->
+                    <div class="lg:col-span-8 space-y-16">
+                        
+                        <!-- Featured: 動画編集 -->
+                        <article class="relative group overflow-hidden rounded-2xl shadow-2xl transition-transform duration-500 hover:-translate-y-1 bg-white dark:bg-zinc-900">
+                            <img 
+                                src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&q=80&w=1200" 
+                                alt="Video Editing" 
+                                class="w-full h-[500px] object-cover transition-transform duration-700 group-hover:scale-105"
+                            />
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8 md:p-12 text-white">
+                                <div class="flex gap-2 mb-4">
+                                    <span class="bg-green-600 text-[10px] px-2 py-1 uppercase tracking-tighter font-bold">Creative</span>
+                                    <span class="bg-green-600 text-[10px] px-2 py-1 uppercase tracking-tighter font-bold">Video</span>
+                                </div>
+                                <h2 class="text-3xl md:text-5xl font-serif mb-4 leading-tight">動画編集 / Video Editing</h2>
+                                <p class="text-zinc-300 text-sm md:text-base max-w-xl mb-6 line-clamp-2">
+                                    YouTube動画からプロモーションビデオまで、ストーリーテリングを重視した映像制作。Premiere ProやAfter Effectsを駆使した高品質な編集を提供します。
+                                </p>
+                                <div class="flex items-center justify-between">
+                                   <a href="video-editing.html" class="flex items-center text-xs uppercase tracking-widest font-bold border-b border-white pb-1 hover:text-green-400 hover:border-green-400 transition-all">
+                                    詳細を見る <i data-lucide="external-link" class="ml-2 w-3 h-3"></i>
+                                  </a>
+                                  <span class="text-xs text-zinc-400">2024-03-20</span>
+                                </div>
                             </div>
-                            <a href="graphic-design.html">
-                                <h3 class="text-xl font-serif group-hover:text-green-600 transition-colors cursor-pointer">
-                                    デザイン / Graphic Design
-                                </h3>
-                            </a>
-                            <p class="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
-                                ロゴ制作、バナー広告、UI/UXデザインなど、ブランドの価値を視覚的に伝えるデザインワーク。シンプルかつ機能的な美しさを追求しています。
-                            </p>
-                        </div>
-                    </article>
+                        </article>
 
-                    <!-- スマホアプリ -->
-                    <article class="flex flex-col space-y-4 group">
-                        <div class="overflow-hidden rounded-xl aspect-[4/3]">
-                            <a href="app-development.html">
-                                <img 
-                                    src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&q=80&w=800" 
-                                    alt="App Development" 
-                                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                                />
-                            </a>
+                        <!-- Grid Posts -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <!-- デザイン -->
+                            <article class="flex flex-col space-y-4 group p-4 rounded-xl bg-white/80 dark:bg-zinc-900/80 shadow-lg backdrop-blur-sm">
+                                <div class="overflow-hidden rounded-xl aspect-[4/3]">
+                                    <a href="graphic-design.html">
+                                        <img 
+                                            src="https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&q=80&w=800" 
+                                            alt="Design" 
+                                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                        />
+                                    </a>
+                                </div>
+                                <div class="space-y-2">
+                                    <div class="flex items-center text-[10px] uppercase tracking-widest text-green-600 font-bold">
+                                        Design • Creative
+                                    </div>
+                                    <a href="graphic-design.html">
+                                        <h3 class="text-xl font-serif group-hover:text-green-600 transition-colors cursor-pointer">
+                                            デザイン / Graphic Design
+                                        </h3>
+                                    </a>
+                                    <p class="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
+                                        ロゴ制作、バナー広告、UI/UXデザインなど、ブランドの価値を視覚的に伝えるデザインワーク。シンプルかつ機能的な美しさを追求しています。
+                                    </p>
+                                </div>
+                            </article>
+
+                            <!-- スマホアプリ -->
+                            <article class="flex flex-col space-y-4 group p-4 rounded-xl bg-white/80 dark:bg-zinc-900/80 shadow-lg backdrop-blur-sm">
+                                <div class="overflow-hidden rounded-xl aspect-[4/3]">
+                                    <a href="app-development.html">
+                                        <img 
+                                            src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&q=80&w=800" 
+                                            alt="App Development" 
+                                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                        />
+                                    </a>
+                                </div>
+                                <div class="space-y-2">
+                                    <div class="flex items-center text-[10px] uppercase tracking-widest text-green-600 font-bold">
+                                        Tech • App
+                                    </div>
+                                    <a href="app-development.html">
+                                        <h3 class="text-xl font-serif group-hover:text-green-600 transition-colors cursor-pointer">
+                                            スマホアプリ / Mobile App Development
+                                        </h3>
+                                    </a>
+                                    <p class="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
+                                        ユーザー体験を最優先に考えたスマートフォンアプリの開発。最新の技術を用いて、直感的で使いやすいモバイルソリューションを構築します。
+                                    </p>
+                                </div>
+                            </article>
                         </div>
-                        <div class="space-y-2">
-                            <div class="flex items-center text-[10px] uppercase tracking-widest text-green-600 font-bold">
-                                Tech • App
+                    </div>
+
+                    <!-- Sidebar -->
+                    <aside class="lg:col-span-4 space-y-12 relative z-10">
+                        <!-- About Widget -->
+                        <div class="p-8 rounded-2xl text-center space-y-6 bg-zinc-50/90 dark:bg-zinc-900/90 shadow-xl backdrop-blur-md">
+                            <img 
+                                src="IMG_2939.jpg" 
+                                alt="Author" 
+                                class="w-32 h-32 rounded-full mx-auto object-cover border-4 border-white dark:border-zinc-800 shadow-xl"
+                                onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=300'"
+                            />
+                            <div>
+                                <h4 class="text-xs tracking-[0.2em] font-bold uppercase mb-2">Nagano Takumi</h4>
+                                <p class="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
+                                    熊本を拠点に活動する、モノづくりが大好きな開発者です。
+                                </p>
                             </div>
-                            <a href="app-development.html">
-                                <h3 class="text-xl font-serif group-hover:text-green-600 transition-colors cursor-pointer">
-                                    スマホアプリ / Mobile App Development
-                                </h3>
-                            </a>
-                            <p class="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
-                                ユーザー体験を最優先に考えたスマートフォンアプリの開発。最新の技術を用いて、直感的で使いやすいモバイルソリューションを構築します。
-                            </p>
+                            <div class="flex justify-center space-x-4 pt-4 border-t border-zinc-200 dark:border-zinc-800">
+                                <a href="https://www.instagram.com/takumi05012/" target="_blank" class="hover:text-green-600 flex items-center justify-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg>
+                                </a>
+                                <a href="https://www.youtube.com/@Volvox0612" target="_blank" class="hover:text-green-600 flex items-center justify-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 2-2 69.44 69.44 0 0 1 15 0 2 2 0 0 1 2 2 24.12 24.12 0 0 1 0 10 2 2 0 0 1-2 2 69.44 69.44 0 0 1-15 0 2 2 0 0 1-2-2z"></path><polyline points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"></polyline></svg>
+                                </a>
+                            </div>
                         </div>
-                    </article>
-                </div>
-            </div>
+                    </aside>
 
-            <!-- Sidebar -->
-            <aside class="lg:col-span-4 space-y-12">
-                <!-- About Widget -->
-                <div class="p-8 rounded-2xl text-center space-y-6 bg-zinc-50 dark:bg-zinc-900">
-                    <img 
-                        src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=300" 
-                        alt="Author" 
-                        class="w-32 h-32 rounded-full mx-auto object-cover border-4 border-white dark:border-zinc-800 shadow-xl"
-                    />
-                    <div>
-                        <h4 class="text-xs tracking-[0.2em] font-bold uppercase mb-2">Writer & Blogger</h4>
-                        <p class="text-sm italic leading-relaxed text-zinc-600 dark:text-zinc-400">
-                            "Capturing the essence of modern living through photography and thoughtful narratives. Based in Nagano, exploring the world."
-                        </p>
-                    </div>
-                    <div class="flex justify-center space-x-4 pt-4 border-t border-zinc-200 dark:border-zinc-800">
-                        <a href="https://www.instagram.com/takumi05012/" target="_blank" class="hover:text-green-600">
-                            <i data-lucide="instagram"></i>
-                        </a>
-                        <a href="https://www.youtube.com/@Volvox0612" target="_blank" class="hover:text-green-600">
-                            <i data-lucide="youtube"></i>
-                        </a>
-                    </div>
                 </div>
-            </aside>
-
+            </main>
         </div>
-    </main>
+    </div>
 
     <!-- Footer -->
-    <footer class="mt-20 border-t bg-zinc-50 border-zinc-200 dark:bg-zinc-900 dark:border-zinc-800">
+    <footer class="border-t bg-zinc-50 dark:bg-zinc-900 border-zinc-200 dark:border-zinc-800 relative z-20">
         <div class="max-w-6xl mx-auto px-4 py-16 grid grid-cols-1 md:grid-cols-2 gap-12">
             <div class="space-y-6">
                 <h5 class="text-2xl font-serif">Portfolio</h5>
@@ -231,9 +242,9 @@
     <!-- Scroll Top Button -->
     <button 
         id="scroll-top-btn"
-        class="fixed bottom-8 right-8 p-4 rounded-full shadow-2xl transition-all duration-300 transform translate-y-12 opacity-0 bg-zinc-900 dark:bg-green-700 hover:bg-green-600 text-white"
+        class="fixed bottom-8 right-8 p-4 rounded-full shadow-2xl transition-all duration-300 transform translate-y-12 opacity-0 bg-zinc-900 dark:bg-green-700 hover:bg-green-600 text-white z-50"
     >
-        <i data-lucide="arrow-up"></i>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide"><path d="m18 15-6-6-6 6"></path></svg>
     </button>
 
     <!-- Lucide Icons Library -->
@@ -262,12 +273,21 @@
             lucide.createIcons();
         });
 
-        // スクロール検知 (Sticky Nav & ScrollTop Button)
+        // ヘッダーのフェードアウト用エレメント
+        const heroHeader = document.getElementById('hero-header');
         const stickyNav = document.getElementById('sticky-nav');
         const scrollTopBtn = document.getElementById('scroll-top-btn');
 
+        // スクロール検知
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
+            const scrollPos = window.scrollY;
+
+            // ヘッダーのフェードアウト効果
+            const opacity = Math.max(0, 1 - scrollPos / 300);
+            heroHeader.style.opacity = opacity;
+
+            // ナビゲーションの固定表示切り替え
+            if (scrollPos > 50) {
                 stickyNav.classList.add('shadow-lg', 'py-2');
                 stickyNav.classList.remove('py-4');
                 scrollTopBtn.classList.remove('translate-y-12', 'opacity-0');
