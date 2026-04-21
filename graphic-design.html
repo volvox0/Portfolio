@@ -34,7 +34,7 @@
         }
         .animate-hero-zoom { animation: hero-zoom-out 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
 
-        /* 画像のホバーエフェクト（拡大） */
+        /* 画像のホバーエフェクト */
         .img-zoom-container { overflow: hidden; border-radius: 1rem; }
         .img-zoom { transition: transform 0.5s ease; }
         .img-zoom:hover { transform: scale(1.03); }
@@ -85,24 +85,22 @@
         <div class="bg-white/40 dark:bg-zinc-950/40 backdrop-blur-[2px] min-h-screen py-16">
             <main class="max-w-6xl mx-auto px-4 space-y-24">
                 
-                <!-- Design Project Section 1 -->
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-                    
-                    <!-- Left: Main Design Image -->
+                <!-- Project 1 (Current) -->
+                <section class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                    <!-- Main Design Image -->
                     <div class="lg:col-span-8">
                         <div class="img-zoom-container shadow-2xl border border-zinc-200 dark:border-zinc-800">
-                            <img src="0421.png" alt="Main Design" class="w-full h-auto img-zoom" onerror="this.src='https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&q=80&w=1200'">
+                            <img src="0421.png" alt="Graphic Design Project 1" class="w-full h-auto img-zoom" onerror="this.src=''">
                         </div>
                     </div>
 
-                    <!-- Right: Info & Source Materials -->
+                    <!-- Info Box -->
                     <div class="lg:col-span-4 space-y-8">
                         <div class="bg-white/80 dark:bg-zinc-900/80 backdrop-blur-md p-8 rounded-2xl shadow-xl border border-white/20 dark:border-zinc-800/50">
                             <h3 class="text-xs font-bold uppercase tracking-widest text-green-600 flex items-center border-b border-green-600/20 pb-2 mb-4">
                                 <i data-lucide="layout" class="mr-2 w-4 h-4"></i> Design Details
                             </h3>
                             
-                            <!-- Description -->
                             <div class="mb-8">
                                 <label class="block text-[10px] uppercase tracking-wider text-zinc-400 mb-2">説明 / Description</label>
                                 <p class="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400 font-medium">
@@ -110,26 +108,23 @@
                                 </p>
                             </div>
 
-                            <!-- Production Time -->
                             <div class="mb-8">
                                 <label class="block text-[10px] uppercase tracking-wider text-zinc-400 mb-1">制作時間 / Production Time</label>
                                 <div class="text-sm font-bold text-green-600">約1時間</div>
                             </div>
 
-                            <!-- Source Materials (B&W effect removed) -->
                             <div class="mb-8">
                                 <label class="block text-[10px] uppercase tracking-wider text-zinc-400 mb-3">使用素材 / Materials</label>
                                 <div class="grid grid-cols-2 gap-2">
                                     <div class="aspect-square bg-zinc-100 dark:bg-zinc-800 rounded-md overflow-hidden border border-zinc-200 dark:border-zinc-700">
-                                        <img src="sozai1.png" class="w-full h-full object-cover transition-all" onerror="this.src='https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=200'">
+                                        <img src="sozai1.png" class="w-full h-full object-cover transition-all" onerror="this.src=''">
                                     </div>
                                     <div class="aspect-square bg-zinc-100 dark:bg-zinc-800 rounded-md overflow-hidden border border-zinc-200 dark:border-zinc-700">
-                                        <img src="sozai2.png" class="w-full h-full object-cover transition-all" onerror="this.src='https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=200'">
+                                        <img src="sozai2.png" class="w-full h-full object-cover transition-all" onerror="this.src=''">
                                     </div>
                                 </div>
                             </div>
 
-                            <!-- Tools Used -->
                             <div>
                                 <label class="block text-[10px] uppercase tracking-wider text-zinc-400 mb-2">使用ツール / Tools</label>
                                 <div class="flex flex-wrap gap-2">
@@ -138,28 +133,127 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </section>
 
                 <hr class="border-zinc-200 dark:border-zinc-800">
-                
+
+                <!-- Project 2 (New) -->
+                <section class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                    <div class="lg:col-span-8">
+                        <div class="img-zoom-container shadow-2xl border border-zinc-200 dark:border-zinc-800">
+                            <img src="project2.png" alt="Graphic Design Project 2" class="w-full h-auto img-zoom" onerror="this.src=''">
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-4 space-y-8">
+                        <div class="bg-white/80 dark:bg-zinc-900/80 backdrop-blur-md p-8 rounded-2xl shadow-xl border border-white/20 dark:border-zinc-800/50">
+                            <h3 class="text-xs font-bold uppercase tracking-widest text-green-600 flex items-center border-b border-green-600/20 pb-2 mb-4">
+                                <i data-lucide="layout" class="mr-2 w-4 h-4"></i> Design Details
+                            </h3>
+                            
+                            <div class="mb-8">
+                                <label class="block text-[10px] uppercase tracking-wider text-zinc-400 mb-2">説明 / Description</label>
+                                <p class="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400 font-medium italic">
+                                    コンテンツ準備中...
+                                </p>
+                            </div>
+
+                            <div class="mb-8">
+                                <label class="block text-[10px] uppercase tracking-wider text-zinc-400 mb-1">制作時間 / Production Time</label>
+                                <div class="text-sm font-bold text-green-600">未設定</div>
+                            </div>
+
+                            <div class="mb-8">
+                                <label class="block text-[10px] uppercase tracking-wider text-zinc-400 mb-3">使用素材 / Materials</label>
+                                <div class="grid grid-cols-2 gap-2">
+                                    <div class="aspect-square bg-zinc-100 dark:bg-zinc-800 rounded-md overflow-hidden border border-zinc-200 dark:border-zinc-700 flex items-center justify-center">
+                                        <i data-lucide="image" class="text-zinc-300"></i>
+                                    </div>
+                                    <div class="aspect-square bg-zinc-100 dark:bg-zinc-800 rounded-md overflow-hidden border border-zinc-200 dark:border-zinc-700 flex items-center justify-center">
+                                        <i data-lucide="image" class="text-zinc-300"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-[10px] uppercase tracking-wider text-zinc-400 mb-2">使用ツール / Tools</label>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-2 py-1 bg-zinc-100 dark:bg-zinc-800 rounded text-[10px] font-bold tracking-tighter uppercase text-zinc-600 dark:text-zinc-300">Tool Name</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <hr class="border-zinc-200 dark:border-zinc-800">
+
+                <!-- Project 3 (New) -->
+                <section class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                    <div class="lg:col-span-8">
+                        <div class="img-zoom-container shadow-2xl border border-zinc-200 dark:border-zinc-800">
+                            <img src="project3.png" alt="Graphic Design Project 3" class="w-full h-auto img-zoom" onerror="this.src=''">
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-4 space-y-8">
+                        <div class="bg-white/80 dark:bg-zinc-900/80 backdrop-blur-md p-8 rounded-2xl shadow-xl border border-white/20 dark:border-zinc-800/50">
+                            <h3 class="text-xs font-bold uppercase tracking-widest text-green-600 flex items-center border-b border-green-600/20 pb-2 mb-4">
+                                <i data-lucide="layout" class="mr-2 w-4 h-4"></i> Design Details
+                            </h3>
+                            
+                            <div class="mb-8">
+                                <label class="block text-[10px] uppercase tracking-wider text-zinc-400 mb-2">説明 / Description</label>
+                                <p class="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400 font-medium italic">
+                                    コンテンツ準備中...
+                                </p>
+                            </div>
+
+                            <div class="mb-8">
+                                <label class="block text-[10px] uppercase tracking-wider text-zinc-400 mb-1">制作時間 / Production Time</label>
+                                <div class="text-sm font-bold text-green-600">未設定</div>
+                            </div>
+
+                            <div class="mb-8">
+                                <label class="block text-[10px] uppercase tracking-wider text-zinc-400 mb-3">使用素材 / Materials</label>
+                                <div class="grid grid-cols-2 gap-2">
+                                    <div class="aspect-square bg-zinc-100 dark:bg-zinc-800 rounded-md overflow-hidden border border-zinc-200 dark:border-zinc-700 flex items-center justify-center">
+                                        <i data-lucide="image" class="text-zinc-300"></i>
+                                    </div>
+                                    <div class="aspect-square bg-zinc-100 dark:bg-zinc-800 rounded-md overflow-hidden border border-zinc-200 dark:border-zinc-700 flex items-center justify-center">
+                                        <i data-lucide="image" class="text-zinc-300"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-[10px] uppercase tracking-wider text-zinc-400 mb-2">使用ツール / Tools</label>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-2 py-1 bg-zinc-100 dark:bg-zinc-800 rounded text-[10px] font-bold tracking-tighter uppercase text-zinc-600 dark:text-zinc-300">Tool Name</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
             </main>
         </div>
     </div>
 
+    <!-- Footer -->
     <footer class="border-t bg-zinc-50 dark:bg-zinc-900 border-zinc-200 dark:border-zinc-800 relative z-20">
-        <div class="max-w-6xl mx-auto px-4 py-16 grid grid-cols-1 md:grid-cols-2 gap-12">
-            <div class="space-y-6 text-left">
-                <h5 class="text-2xl font-serif text-left">Portfolio</h5>
-                <p class="text-sm text-zinc-500 leading-relaxed text-left">Built with precision and passion for modern aesthetics.</p>
+        <div class="max-w-6xl mx-auto px-4 py-16 grid grid-cols-1 md:grid-cols-2 gap-12 text-left">
+            <div class="space-y-6">
+                <h5 class="text-2xl font-serif">Portfolio</h5>
+                <p class="text-sm text-zinc-500">Built with precision and passion for modern aesthetics.</p>
             </div>
             <div class="flex flex-col items-start md:items-end">
                 <h5 class="text-sm font-bold uppercase tracking-widest mb-6">Connect</h5>
                 <div class="flex space-x-4">
-                    <a href="https://www.instagram.com/takumi05012/" target="_blank" class="p-3 rounded-full bg-white shadow-sm dark:bg-zinc-800 hover:text-green-600 transition-colors flex items-center justify-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-lg"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg>
+                    <a href="https://www.instagram.com/takumi05012/" target="_blank" class="p-3 rounded-full bg-white dark:bg-zinc-800 hover:text-green-600 transition-colors flex items-center justify-center">
+                        <i data-lucide="instagram"></i>
                     </a>
-                    <a href="https://www.youtube.com/@Volvox0612" target="_blank" class="p-3 rounded-full bg-white shadow-sm dark:bg-zinc-800 hover:text-green-600 transition-colors flex items-center justify-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-lg"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 2-2 69.44 69.44 0 0 1 15 0 2 2 0 0 1 2 2 24.12 24.12 0 0 1 0 10 2 2 0 0 1-2 2 69.44 69.44 0 0 1-15 0 2 2 0 0 1-2-2z"></path><polyline points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"></polyline></svg>
+                    <a href="https://www.youtube.com/@Volvox0612" target="_blank" class="p-3 rounded-full bg-white dark:bg-zinc-800 hover:text-green-600 transition-colors flex items-center justify-center">
+                        <i data-lucide="youtube"></i>
                     </a>
                 </div>
             </div>
@@ -169,7 +263,7 @@
 
     <!-- Scroll Top Button -->
     <button id="scroll-top-btn" class="fixed bottom-8 right-8 p-4 rounded-full shadow-2xl transition-all duration-300 transform translate-y-12 opacity-0 bg-zinc-900 dark:bg-green-700 hover:bg-green-600 text-white z-50">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide"><path d="m18 15-6-6-6 6"></path></svg>
+        <i data-lucide="chevron-up"></i>
     </button>
 
     <script>
