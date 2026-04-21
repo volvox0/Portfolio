@@ -4,28 +4,64 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hobbies & Life - Nagano Takumi</title>
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
     <script>
-        tailwind.config = { darkMode: 'class', theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'], serif: ['Playfair Display', 'serif'], } } } }
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                }
+            }
+        }
     </script>
     <style>
         .lucide { width: 1.25rem; height: 1.25rem; display: inline-block; }
         .lucide-lg { width: 1.5rem; height: 1.5rem; }
         html { scroll-behavior: smooth; }
+
         .hero-text-container { opacity: 0; transform: scale(1.25); filter: blur(10px); }
         @keyframes hero-zoom-out {
             0% { opacity: 0; transform: scale(1.25); filter: blur(10px); }
             100% { opacity: 1; transform: scale(1); filter: blur(0); }
         }
         .animate-hero-zoom { animation: hero-zoom-out 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+
+        /* Blog Card Styling */
+        .blog-card {
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .blog-card:hover {
+            transform: translateY(-8px);
+        }
+        .media-container {
+            overflow: hidden;
+            border-radius: 1.25rem;
+            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.2);
+        }
+        .media-hover {
+            transition: transform 0.7s ease;
+        }
+        .media-hover:hover {
+            transform: scale(1.05);
+        }
     </style>
 </head>
 <body class="transition-colors duration-300 text-zinc-900 dark:text-zinc-100">
 
+    <!-- Top Bar -->
     <div id="top-bar" class="w-full py-2 border-b bg-zinc-50 dark:bg-zinc-900 border-zinc-200 dark:border-zinc-800 relative z-20">
         <div class="max-w-6xl mx-auto px-4 flex justify-between items-center text-xs tracking-widest uppercase">
-            <div class="flex space-x-6"><a href="index.html" class="hover:text-green-600 transition-colors">Home</a></div>
+            <div class="flex space-x-6">
+                <a href="index.html" class="hover:text-green-600 transition-colors font-bold">Home</a>
+            </div>
             <div class="flex space-x-4">
                 <a href="https://www.youtube.com/@Volvox0612" target="_blank" class="hover:text-green-600"><i data-lucide="youtube"></i></a>
                 <a href="https://www.instagram.com/takumi05012/" target="_blank" class="hover:text-green-600"><i data-lucide="instagram"></i></a>
@@ -33,6 +69,7 @@
         </div>
     </div>
 
+    <!-- Hero Header -->
     <header id="hero-header" class="relative py-32 text-center bg-cover bg-center bg-no-repeat z-10 overflow-hidden" style="background-image: url('header.png');">
         <div class="absolute inset-0 bg-white/20 dark:bg-black/30"></div>
         <div class="relative z-10 hero-text-container animate-hero-zoom">
@@ -41,6 +78,7 @@
         </div>
     </header>
 
+    <!-- Sticky Navigation -->
     <nav id="sticky-nav" class="sticky top-0 z-50 transition-all duration-300 py-4 bg-white/95 dark:bg-zinc-900/95 backdrop-blur-md border-y border-zinc-100 dark:border-zinc-800">
         <div class="max-w-6xl mx-auto px-4 flex justify-between items-center">
             <div class="flex space-x-8 text-[10px] uppercase tracking-[0.2em] font-bold">
@@ -49,49 +87,137 @@
                 <a href="app-development.html" class="hover:text-green-600 transition-colors">App</a>
                 <a href="hobbies.html" class="text-green-600">Hobby</a>
             </div>
-            <button id="dark-mode-toggle" class="p-2 hover:text-green-600 transition-colors"><i id="dark-icon" data-lucide="moon"></i><i id="light-icon" data-lucide="sun" class="hidden"></i></button>
+            <button id="dark-mode-toggle" class="p-2 hover:text-green-600 transition-colors">
+                <i id="dark-icon" data-lucide="moon"></i>
+                <i id="light-icon" data-lucide="sun" class="hidden"></i>
+            </button>
         </div>
     </nav>
 
-    <div class="bg-[url('back.png')] bg-cover bg-center bg-fixed min-h-[60vh]">
-        <div class="bg-white/40 dark:bg-zinc-950/40 backdrop-blur-[2px] min-h-[60vh]">
-            <main class="max-w-4xl mx-auto px-4 py-20 text-center">
-                <h4 class="text-xs tracking-[0.2em] font-bold uppercase text-green-600 mb-4">Hobbies & Life</h4>
-                <h1 class="text-5xl font-serif mb-8">趣味・日常生活</h1>
-                <p class="text-zinc-500 leading-relaxed">熊本の豊かな自然の中で楽しむ釣りや、日々の制作活動を支える日常生活。ここでは私の等身大のストーリーを公開していく予定です。</p>
-                <div class="mt-12 p-12 border-2 border-dashed border-zinc-200 dark:border-zinc-800 rounded-3xl">
-                    <p class="text-zinc-400 italic">Content Coming Soon...</p>
-                </div>
+    <!-- Main Content Area -->
+    <div class="bg-[url('back.png')] bg-cover bg-center bg-fixed min-h-screen">
+        <div class="bg-white/40 dark:bg-zinc-950/40 backdrop-blur-[2px] min-h-screen py-16">
+            <main class="max-w-5xl mx-auto px-4 space-y-24">
+
+                <!-- Blog Post 1: Web Site Intro (Warframe) -->
+                <article class="blog-card space-y-8">
+                    <!-- Eye-catching Main Title -->
+                    <div class="text-center md:text-left space-y-2">
+                        <div class="flex items-center justify-center md:justify-start space-x-3 mb-2">
+                            <span class="px-3 py-1 bg-blue-600 text-[9px] text-white font-black uppercase tracking-widest rounded-full">Development</span>
+                            <span class="text-[10px] text-zinc-400 font-bold uppercase tracking-[0.2em]">April 21, 2026</span>
+                        </div>
+                        <h2 class="text-4xl md:text-5xl font-serif leading-tight">
+                            Warframe Items Shop - 自作情報サイトの公開
+                        </h2>
+                    </div>
+
+                    <!-- Media Left / Content Right Row -->
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start bg-white/70 dark:bg-zinc-900/70 backdrop-blur-md p-8 rounded-[2.5rem] shadow-2xl border border-white/20 dark:border-zinc-800/50">
+                        
+                        <!-- Left: Header Image -->
+                        <div class="lg:col-span-7">
+                            <div class="media-container aspect-video bg-zinc-200 dark:bg-zinc-800">
+                                <img src="shop1.jpeg" alt="Warframe Shop Site" class="w-full h-full object-cover media-hover" onerror="this.src=''">
+                            </div>
+                        </div>
+
+                        <!-- Right: Description & Links -->
+                        <div class="lg:col-span-5 space-y-6">
+                            <div class="space-y-4">
+                                <h3 class="text-xs font-bold uppercase tracking-widest text-green-600 flex items-center">
+                                    <i data-lucide="info" class="mr-2 w-4 h-4"></i> About this project
+                                </h3>
+                                <p class="text-sm md:text-base text-zinc-600 dark:text-zinc-400 leading-relaxed font-medium">
+                                    大好きなゲーム「Warframe」のアイテム情報を集約した個人ショップ風サイトを制作しました。
+                                    デザインの構築からコーディング、データの整理まで全て一貫して行っています。
+                                </p>
+                                <p class="text-sm text-zinc-500 leading-relaxed">
+                                    ユーザーがストレスなく情報を探せるよう、シンプルかつモダンなインターフェースを意識しました。
+                                    今後も機能の拡充を予定しています。
+                                </p>
+                            </div>
+
+                            <!-- URL Link Area -->
+                            <div class="pt-6 border-t border-zinc-200 dark:border-zinc-800">
+                                <p class="text-[10px] text-zinc-400 uppercase tracking-widest mb-3 font-bold">Visit Website</p>
+                                <a href="https://volvox0.shop/" target="_blank" class="flex items-center justify-between p-4 bg-zinc-900 dark:bg-green-700 text-white rounded-2xl hover:bg-green-600 transition-colors group shadow-lg">
+                                    <span class="font-bold tracking-tight">https://volvox0.shop/</span>
+                                    <i data-lucide="external-link" class="w-5 h-5 group-hover:rotate-12 transition-transform"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <hr class="border-zinc-200 dark:border-zinc-800 opacity-30">
+
+                <!-- 2つ目以降の投稿枠（テンプレート） -->
+                <article class="blog-card opacity-60">
+                    <div class="text-center py-20 border-4 border-dashed border-zinc-200 dark:border-zinc-800 rounded-[3rem]">
+                        <p class="text-zinc-400 italic font-serif">Next Story Coming Soon...</p>
+                    </div>
+                </article>
+
             </main>
         </div>
     </div>
 
+    <!-- Footer -->
     <footer class="border-t bg-zinc-50 dark:bg-zinc-900 border-zinc-200 dark:border-zinc-800 relative z-20">
         <div class="max-w-6xl mx-auto px-4 py-16 grid grid-cols-1 md:grid-cols-2 gap-12 text-left">
-            <div class="space-y-6"><h5 class="text-2xl font-serif">Portfolio</h5><p class="text-sm text-zinc-500">Built with precision and passion for modern aesthetics.</p></div>
+            <div class="space-y-6">
+                <h5 class="text-2xl font-serif text-left">Portfolio</h5>
+                <p class="text-sm text-zinc-500 text-left leading-relaxed">Built with precision and passion for modern aesthetics.</p>
+            </div>
             <div class="flex flex-col items-start md:items-end">
                 <h5 class="text-sm font-bold uppercase tracking-widest mb-6">Connect</h5>
                 <div class="flex space-x-4">
-                    <a href="https://www.instagram.com/takumi05012/" target="_blank" class="p-3 rounded-full bg-white dark:bg-zinc-800"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-lg"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg></a>
-                    <a href="https://www.youtube.com/@Volvox0612" target="_blank" class="p-3 rounded-full bg-white dark:bg-zinc-800"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-lg"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 2-2 69.44 69.44 0 0 1 15 0 2 2 0 0 1 2 2 24.12 24.12 0 0 1 0 10 2 2 0 0 1-2 2 69.44 69.44 0 0 1-15 0 2 2 0 0 1-2-2z"></path><polyline points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"></polyline></svg></a>
+                    <a href="https://www.instagram.com/takumi05012/" target="_blank" class="p-3 rounded-full bg-white dark:bg-zinc-800 hover:text-green-600 transition-colors flex items-center justify-center shadow-sm">
+                        <i data-lucide="instagram"></i>
+                    </a>
+                    <a href="https://www.youtube.com/@Volvox0612" target="_blank" class="p-3 rounded-full bg-white dark:bg-zinc-800 hover:text-green-600 transition-colors flex items-center justify-center shadow-sm">
+                        <i data-lucide="youtube"></i>
+                    </a>
                 </div>
             </div>
         </div>
+        <div class="border-t border-zinc-200 dark:border-zinc-800 py-8 text-center text-[10px] uppercase tracking-[0.2em] text-zinc-400">© 2025 Nagano Takumi</div>
     </footer>
-    <button id="scroll-top-btn" class="fixed bottom-8 right-8 p-4 rounded-full bg-zinc-900 dark:bg-green-700 text-white z-50 translate-y-12 opacity-0 transition-all"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide"><path d="m18 15-6-6-6 6"></path></svg></button>
-    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Scroll Top Button -->
+    <button id="scroll-top-btn" class="fixed bottom-8 right-8 p-4 rounded-full shadow-2xl transition-all duration-300 transform translate-y-12 opacity-0 bg-zinc-900 dark:bg-green-700 hover:bg-green-600 text-white z-50">
+        <i data-lucide="chevron-up"></i>
+    </button>
+
     <script>
         lucide.createIcons();
+        
+        // --- Dark Mode ---
         const darkModeToggle = document.getElementById('dark-mode-toggle');
-        darkModeToggle.addEventListener('click', () => { document.documentElement.classList.toggle('dark'); document.getElementById('dark-icon').classList.toggle('hidden'); document.getElementById('light-icon').classList.toggle('hidden'); lucide.createIcons(); });
+        darkModeToggle.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+            const isDark = document.documentElement.classList.contains('dark');
+            document.getElementById('dark-icon').classList.toggle('hidden', isDark);
+            document.getElementById('light-icon').classList.toggle('hidden', !isDark);
+            lucide.createIcons();
+        });
+
+        // --- Scroll Effects ---
         const heroHeader = document.getElementById('hero-header');
         const stickyNav = document.getElementById('sticky-nav');
         const scrollTopBtn = document.getElementById('scroll-top-btn');
+
         window.addEventListener('scroll', () => {
             const scrollPos = window.scrollY;
             heroHeader.style.opacity = Math.max(0, 1 - scrollPos / 300);
-            if (scrollPos > 50) { stickyNav.classList.add('shadow-lg', 'py-2'); stickyNav.classList.remove('py-4'); scrollTopBtn.classList.remove('translate-y-12', 'opacity-0'); scrollTopBtn.classList.add('translate-y-0', 'opacity-100'); }
-            else { stickyNav.classList.remove('shadow-lg', 'py-2'); stickyNav.classList.add('py-4'); scrollTopBtn.classList.add('translate-y-12', 'opacity-0'); scrollTopBtn.classList.remove('translate-y-0', 'opacity-100'); }
+            if (scrollPos > 50) {
+                stickyNav.classList.add('shadow-lg', 'py-2'); stickyNav.classList.remove('py-4');
+                scrollTopBtn.classList.remove('translate-y-12', 'opacity-0'); scrollTopBtn.classList.add('translate-y-0', 'opacity-100');
+            } else {
+                stickyNav.classList.remove('shadow-lg', 'py-2'); stickyNav.classList.add('py-4');
+                scrollTopBtn.classList.add('translate-y-12', 'opacity-0'); scrollTopBtn.classList.remove('translate-y-0', 'opacity-100');
+            }
         });
         scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
     </script>
