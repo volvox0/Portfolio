@@ -38,19 +38,35 @@
         .blog-card {
             transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .blog-card:hover {
-            transform: translateY(-8px);
-        }
         .media-container {
             overflow: hidden;
             border-radius: 1.25rem;
             box-shadow: 0 10px 30px -10px rgba(0,0,0,0.2);
+            position: relative;
         }
-        .media-hover {
-            transition: transform 0.7s ease;
+
+        /* PC Specs Specific */
+        .spec-label {
+            @apply text-[10px] uppercase tracking-widest text-zinc-400 font-bold mb-1 block;
         }
-        .media-hover:hover {
-            transform: scale(1.05);
+        .spec-value {
+            @apply text-sm font-bold text-zinc-800 dark:text-zinc-200;
+        }
+        
+        /* Modal for Image Zoom */
+        #image-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 100;
+            background: rgba(0,0,0,0.9);
+            backdrop-blur: 10px;
+            align-items: center;
+            justify-content: center;
+            cursor: zoom-out;
+        }
+        #image-modal.show {
+            display: flex;
         }
     </style>
 </head>
@@ -101,7 +117,6 @@
 
                 <!-- Blog Post 1: Web Site Intro (Warframe) -->
                 <article class="blog-card space-y-8">
-                    <!-- Eye-catching Main Title -->
                     <div class="text-center md:text-left space-y-2">
                         <div class="flex items-center justify-center md:justify-start space-x-3 mb-2">
                             <span class="px-3 py-1 bg-blue-600 text-[9px] text-white font-black uppercase tracking-widest rounded-full">Development</span>
@@ -112,17 +127,13 @@
                         </h2>
                     </div>
 
-                    <!-- Media Left / Content Right Row -->
                     <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start bg-white/70 dark:bg-zinc-900/70 backdrop-blur-md p-8 rounded-[2.5rem] shadow-2xl border border-white/20 dark:border-zinc-800/50">
-                        
-                        <!-- Left: Header Image -->
                         <div class="lg:col-span-7">
                             <div class="media-container aspect-video bg-zinc-200 dark:bg-zinc-800">
                                 <img src="shop1.jpeg" alt="Warframe Shop Site" class="w-full h-full object-cover media-hover" onerror="this.src=''">
                             </div>
                         </div>
 
-                        <!-- Right: Description & Links -->
                         <div class="lg:col-span-5 space-y-6">
                             <div class="space-y-4">
                                 <h3 class="text-xs font-bold uppercase tracking-widest text-green-600 flex items-center">
@@ -138,7 +149,6 @@
                                 </p>
                             </div>
 
-                            <!-- URL Link Area -->
                             <div class="pt-6 border-t border-zinc-200 dark:border-zinc-800">
                                 <p class="text-[10px] text-zinc-400 uppercase tracking-widest mb-3 font-bold">Visit Website</p>
                                 <a href="https://volvox0.shop/" target="_blank" class="flex items-center justify-between p-4 bg-zinc-900 dark:bg-green-700 text-white rounded-2xl hover:bg-green-600 transition-colors group shadow-lg">
@@ -152,7 +162,95 @@
 
                 <hr class="border-zinc-200 dark:border-zinc-800 opacity-30">
 
-                <!-- 2つ目以降の投稿枠（テンプレート） -->
+                <!-- Blog Post 2: Custom PC Specs (New) -->
+                <article class="blog-card space-y-8">
+                    <div class="text-center md:text-left space-y-2">
+                        <div class="flex items-center justify-center md:justify-start space-x-3 mb-2">
+                            <span class="px-3 py-1 bg-orange-600 text-[9px] text-white font-black uppercase tracking-widest rounded-full">PC Build</span>
+                            <span class="text-[10px] text-zinc-400 font-bold uppercase tracking-[0.2em]">April 21, 2026</span>
+                        </div>
+                        <h2 class="text-4xl md:text-5xl font-serif leading-tight">
+                            「絶対的安定」を求めた自作PC構成とこだわり
+                        </h2>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start bg-white/70 dark:bg-zinc-900/70 backdrop-blur-md p-8 rounded-[2.5rem] shadow-2xl border border-white/20 dark:border-zinc-800/50">
+                        
+                        <!-- Left: Slider Container -->
+                        <div class="lg:col-span-6">
+                            <div class="media-container aspect-[3/4] bg-black group overflow-hidden">
+                                <!-- Slides -->
+                                <div id="pc-slider" class="relative w-full h-full cursor-zoom-in" onclick="openModal()">
+                                    <img id="slide-img" src="status.png" alt="PC Status" class="w-full h-full object-contain transition-opacity duration-500" onerror="this.src=''">
+                                </div>
+
+                                <!-- Arrows -->
+                                <button onclick="prevSlide()" class="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/20 hover:bg-white/40 backdrop-blur-md rounded-full flex items-center justify-center text-white transition-all hover:-translate-y-[calc(50%+4px)]">
+                                    <i data-lucide="chevron-left"></i>
+                                </button>
+                                <button onclick="nextSlide()" class="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/20 hover:bg-white/40 backdrop-blur-md rounded-full flex items-center justify-center text-white transition-all hover:-translate-y-[calc(50%+4px)]">
+                                    <i data-lucide="chevron-right"></i>
+                                </button>
+
+                                <!-- Indicators -->
+                                <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex space-x-2">
+                                    <div class="slide-dot w-2 h-2 rounded-full bg-white opacity-100 transition-all"></div>
+                                    <div class="slide-dot w-2 h-2 rounded-full bg-white opacity-40 transition-all"></div>
+                                    <div class="slide-dot w-2 h-2 rounded-full bg-white opacity-40 transition-all"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right: Content & Specs Table -->
+                        <div class="lg:col-span-6 space-y-8">
+                            <div class="space-y-4">
+                                <h3 class="text-xs font-bold uppercase tracking-widest text-green-600 flex items-center">
+                                    <i data-lucide="cpu" class="mr-2 w-4 h-4"></i> System Concept
+                                </h3>
+                                <p class="text-sm md:text-base text-zinc-600 dark:text-zinc-400 leading-relaxed font-medium">
+                                    長時間の動画エンコードや複雑なMOD環境下でも決して揺るがない、**『絶対的な安定性』**を最優先したビルドです。
+                                    あえて定格運用を貫くことで、クリエイティブワークに集中できる環境を構築しました。
+                                </p>
+                            </div>
+
+                            <!-- Spec List -->
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="p-4 rounded-2xl bg-blue-50/50 dark:bg-blue-900/10 border border-blue-100/50 dark:border-blue-900/20">
+                                    <span class="spec-label text-blue-600">CPU</span>
+                                    <p class="spec-value">Intel Core i7-14700F</p>
+                                    <p class="text-[10px] text-zinc-500 mt-1">内蔵GPUなしの「F」を選択し描画負荷を分離</p>
+                                </div>
+                                <div class="p-4 rounded-2xl bg-red-50/50 dark:bg-red-900/10 border border-red-100/50 dark:border-red-900/20">
+                                    <span class="spec-label text-red-600">GPU</span>
+                                    <p class="spec-value">Radeon RX 6800 XT</p>
+                                    <p class="text-[10px] text-zinc-500 mt-1">VRAM容量に余裕のあるAMD上位モデル</p>
+                                </div>
+                                <div class="p-4 rounded-2xl bg-zinc-100/50 dark:bg-zinc-800/50 border border-zinc-200/50 dark:border-zinc-700/50">
+                                    <span class="spec-label">Memory</span>
+                                    <p class="spec-value">64GB (Micron Tech)</p>
+                                    <p class="text-[10px] text-zinc-500 mt-1 italic">2133 MT/s 定格運用の究極安定志向</p>
+                                </div>
+                                <div class="p-4 rounded-2xl bg-zinc-100/50 dark:bg-zinc-800/50 border border-zinc-200/50 dark:border-zinc-700/50">
+                                    <span class="spec-label">Motherboard</span>
+                                    <p class="spec-value">ASRock B760 Pro RS/D4 WiFi</p>
+                                </div>
+                                <div class="p-4 rounded-2xl bg-green-50/50 dark:bg-green-900/10 border border-green-100/50 dark:border-green-900/20 md:col-span-2">
+                                    <div class="flex justify-between items-center">
+                                        <div>
+                                            <span class="spec-label text-green-600">Total Storage</span>
+                                            <p class="spec-value">2.33 TB</p>
+                                        </div>
+                                        <i data-lucide="database" class="text-green-600 opacity-20 w-8 h-8"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <hr class="border-zinc-200 dark:border-zinc-800 opacity-30">
+
+                <!-- 投稿枠（テンプレート） -->
                 <article class="blog-card opacity-60">
                     <div class="text-center py-20 border-4 border-dashed border-zinc-200 dark:border-zinc-800 rounded-[3rem]">
                         <p class="text-zinc-400 italic font-serif">Next Story Coming Soon...</p>
@@ -161,6 +259,11 @@
 
             </main>
         </div>
+    </div>
+
+    <!-- Modal for Zoom -->
+    <div id="image-modal" onclick="closeModal()">
+        <img id="modal-img" src="" class="max-w-[90vw] max-h-[90vh] object-contain shadow-2xl rounded-lg">
     </div>
 
     <!-- Footer -->
@@ -220,6 +323,49 @@
             }
         });
         scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+        // --- PC Slider Logic ---
+        const slides = ['status.png', 'pc.jpg', 'cpu.jpg'];
+        let currentSlide = 0;
+        const slideImg = document.getElementById('slide-img');
+        const dots = document.querySelectorAll('.slide-dot');
+
+        function updateSlide() {
+            slideImg.style.opacity = 0;
+            setTimeout(() => {
+                slideImg.src = slides[currentSlide];
+                slideImg.style.opacity = 1;
+                // Update dots
+                dots.forEach((dot, index) => {
+                    dot.style.opacity = index === currentSlide ? '1' : '0.4';
+                });
+            }, 300);
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            updateSlide();
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            updateSlide();
+        }
+
+        // --- Modal Logic ---
+        const modal = document.getElementById('image-modal');
+        const modalImg = document.getElementById('modal-img');
+
+        function openModal() {
+            modalImg.src = slides[currentSlide];
+            modal.classList.add('show');
+            document.body.style.overflow = 'hidden'; // Lock scroll
+        }
+
+        function closeModal() {
+            modal.classList.remove('show');
+            document.body.style.overflow = ''; // Unlock scroll
+        }
     </script>
 </body>
 </html>
