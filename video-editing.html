@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Video Editing - Nagano Takumi</title>
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
@@ -30,6 +32,21 @@
             100% { opacity: 1; transform: scale(1); filter: blur(0); }
         }
         .animate-hero-zoom { animation: hero-zoom-out 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+
+        /* YouTube 16:9 responsive wrapper */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 1rem;
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+            background: #000;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+        }
     </style>
 </head>
 <body class="transition-colors duration-300 text-zinc-900 dark:text-zinc-100">
@@ -37,7 +54,7 @@
     <!-- Top Bar -->
     <div id="top-bar" class="w-full py-2 border-b bg-zinc-50 dark:bg-zinc-900 border-zinc-200 dark:border-zinc-800 relative z-20">
         <div class="max-w-6xl mx-auto px-4 flex justify-between items-center text-xs tracking-widest uppercase">
-            <div class="flex space-x-6">
+            <div class="flex space-x-6 text-left">
                 <a href="index.html" class="hover:text-green-600 transition-colors">Home</a>
             </div>
             <div class="flex space-x-4">
@@ -47,7 +64,7 @@
         </div>
     </div>
 
-    <!-- Hero Header (No Birds) -->
+    <!-- Hero Header -->
     <header id="hero-header" class="relative py-32 text-center bg-cover bg-center bg-no-repeat z-10 overflow-hidden" style="background-image: url('header.png');">
         <div class="absolute inset-0 bg-white/20 dark:bg-black/30"></div>
         <div class="relative z-10 hero-text-container animate-hero-zoom">
@@ -73,11 +90,64 @@
     </nav>
 
     <!-- Main Content Area -->
-    <div class="bg-[url('back.png')] bg-cover bg-center bg-fixed min-h-[60vh]">
-        <div class="bg-white/40 dark:bg-zinc-950/40 backdrop-blur-[2px] min-h-[60vh]">
-            <main class="max-w-6xl mx-auto px-4 py-20 text-center">
-                <!-- Content here -->
-                <p class="text-zinc-500 italic">Content Coming Soon...</p>
+    <div class="bg-[url('back.png')] bg-cover bg-center bg-fixed min-h-screen">
+        <div class="bg-white/40 dark:bg-zinc-950/40 backdrop-blur-[2px] min-h-screen py-16">
+            <main class="max-w-6xl mx-auto px-4">
+                
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                    
+                    <!-- YouTube Video Link Section -->
+                    <div class="lg:col-span-8">
+                        <div class="video-container">
+                            <iframe 
+                                id="yt-iframe"
+                                src="https://www.youtube.com/embed/6QQUvZPEWeI?rel=0" 
+                                title="YouTube video player" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                    </div>
+
+                    <!-- Information Box -->
+                    <div class="lg:col-span-4">
+                        <div class="bg-white/80 dark:bg-zinc-900/80 backdrop-blur-md p-8 rounded-2xl shadow-xl border border-white/20 dark:border-zinc-800/50 space-y-6">
+                            <h3 class="text-xs font-bold uppercase tracking-widest text-green-600 flex items-center border-b border-green-600/20 pb-2">
+                                <i data-lucide="file-text" class="mr-2 w-4 h-4"></i> Project Specs
+                            </h3>
+                            
+                            <div class="prose prose-sm dark:prose-invert max-w-none">
+                                <div class="mb-6">
+                                    <label class="block text-[10px] uppercase tracking-wider text-zinc-400 mb-1">説明 / Description</label>
+                                    <div class="text-sm leading-relaxed font-medium">
+                                        字幕の文字お越し機能を使い、音声を出力しました。
+                                    </div>
+                                </div>
+
+                                <div class="mb-6">
+                                    <label class="block text-[10px] uppercase tracking-wider text-zinc-400 mb-1">制作時間 / Production Time</label>
+                                    <div class="text-sm font-bold text-green-600">約 4時間</div>
+                                </div>
+
+                                <div class="mb-6">
+                                    <label class="block text-[10px] uppercase tracking-wider text-zinc-400 mb-1">編集ソフト / Software</label>
+                                    <div class="flex flex-wrap gap-2 mt-2">
+                                        <span class="px-2 py-1 bg-zinc-100 dark:bg-zinc-800 rounded text-[10px] font-bold tracking-tighter">CAPCUT</span>
+                                    </div>
+                                </div>
+
+                                <div class="pt-4 border-t border-zinc-100 dark:border-zinc-800">
+                                    <label class="block text-[10px] uppercase tracking-wider text-zinc-400 mb-2">動画リンク / Video Link</label>
+                                    <a href="https://youtu.be/6QQUvZPEWeI" target="_blank" class="text-sm font-bold text-green-600 hover:underline break-all block">
+                                        https://youtu.be/6QQUvZPEWeI
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </main>
         </div>
     </div>
@@ -85,9 +155,9 @@
     <!-- Footer -->
     <footer class="border-t bg-zinc-50 dark:bg-zinc-900 border-zinc-200 dark:border-zinc-800 relative z-20">
         <div class="max-w-6xl mx-auto px-4 py-16 grid grid-cols-1 md:grid-cols-2 gap-12">
-            <div class="space-y-6">
-                <h5 class="text-2xl font-serif">Portfolio</h5>
-                <p class="text-sm text-zinc-500 leading-relaxed">Built with precision and passion for modern aesthetics.</p>
+            <div class="space-y-6 text-left">
+                <h5 class="text-2xl font-serif text-left">Portfolio</h5>
+                <p class="text-sm text-zinc-500 leading-relaxed text-left">Built with precision and passion for modern aesthetics.</p>
             </div>
             <div class="flex flex-col items-start md:items-end">
                 <h5 class="text-sm font-bold uppercase tracking-widest mb-6">Connect</h5>
@@ -111,14 +181,26 @@
     <script src="https://unpkg.com/lucide@latest"></script>
     <script>
         lucide.createIcons();
+        
+        // --- Dark Mode ---
         const darkModeToggle = document.getElementById('dark-mode-toggle');
         darkModeToggle.addEventListener('click', () => {
             document.documentElement.classList.toggle('dark');
-            document.getElementById('dark-icon').classList.toggle('hidden');
-            document.getElementById('light-icon').classList.toggle('hidden');
+            const isDark = document.documentElement.classList.contains('dark');
+            const darkIcon = document.getElementById('dark-icon');
+            const lightIcon = document.getElementById('light-icon');
+            
+            if (isDark) {
+                darkIcon.classList.add('hidden');
+                lightIcon.classList.remove('hidden');
+            } else {
+                darkIcon.classList.remove('hidden');
+                lightIcon.classList.add('hidden');
+            }
             lucide.createIcons();
         });
 
+        // --- Scroll Effects ---
         const heroHeader = document.getElementById('hero-header');
         const stickyNav = document.getElementById('sticky-nav');
         const scrollTopBtn = document.getElementById('scroll-top-btn');
