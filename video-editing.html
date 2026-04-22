@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Video Editing - Nagano Takumi</title>
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
     <script>
@@ -48,12 +46,10 @@
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
         }
-        /* Special aspect ratio for shorts if needed, but keeping consistent UI */
     </style>
 </head>
 <body class="transition-colors duration-300 text-zinc-900 dark:text-zinc-100">
 
-    <!-- Top Bar -->
     <div id="top-bar" class="w-full py-2 border-b bg-zinc-50 dark:bg-zinc-900 border-zinc-200 dark:border-zinc-800 relative z-20">
         <div class="max-w-6xl mx-auto px-4 flex justify-between items-center text-xs tracking-widest uppercase">
             <div class="flex space-x-6 text-left">
@@ -66,7 +62,6 @@
         </div>
     </div>
 
-    <!-- Hero Header -->
     <header id="hero-header" class="relative py-32 text-center bg-cover bg-center bg-no-repeat z-10 overflow-hidden" style="background-image: url('header.png');">
         <div class="absolute inset-0 bg-white/20 dark:bg-black/30"></div>
         <div class="relative z-10 hero-text-container animate-hero-zoom">
@@ -75,7 +70,6 @@
         </div>
     </header>
 
-    <!-- Sticky Navigation -->
     <nav id="sticky-nav" class="sticky top-0 z-50 transition-all duration-300 py-4 bg-white/95 dark:bg-zinc-900/95 backdrop-blur-md border-y border-zinc-100 dark:border-zinc-800">
         <div class="max-w-6xl mx-auto px-4 flex justify-between items-center">
             <div class="flex space-x-8 text-[10px] uppercase tracking-[0.2em] font-bold">
@@ -91,58 +85,26 @@
         </div>
     </nav>
 
-    <!-- Main Content Area -->
     <div class="bg-[url('back.png')] bg-cover bg-center bg-fixed min-h-screen">
         <div class="bg-white/40 dark:bg-zinc-950/40 backdrop-blur-[2px] min-h-screen py-16">
             <main class="max-w-6xl mx-auto px-4 space-y-24">
                 
-                <!-- Section 1 -->
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
                     <div class="lg:col-span-8">
                         <div class="video-container">
-                            <iframe 
-                                id="yt-iframe-1"
-                                src="https://www.youtube.com/embed/6QQUvZPEWeI?rel=0" 
-                                title="YouTube video player" 
-                                frameborder="0" 
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                                allowfullscreen>
-                            </iframe>
+                            <iframe id="yt-iframe-1" src="https://www.youtube.com/embed/6QQUvZPEWeI?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                         </div>
                     </div>
-
                     <div class="lg:col-span-4">
                         <div class="bg-white/80 dark:bg-zinc-900/80 backdrop-blur-md p-8 rounded-2xl shadow-xl border border-white/20 dark:border-zinc-800/50 space-y-6">
                             <h3 class="text-xs font-bold uppercase tracking-widest text-green-600 flex items-center border-b border-green-600/20 pb-2">
                                 <i data-lucide="file-text" class="mr-2 w-4 h-4"></i> Project Specs
                             </h3>
-                            
                             <div class="prose prose-sm dark:prose-invert max-w-none">
-                                <div class="mb-6">
-                                    <label class="block text-[10px] uppercase tracking-wider text-zinc-400 mb-1">説明 / Description</label>
-                                    <div class="text-sm leading-relaxed font-medium">
-                                        字幕の文字お越し機能を使い、音声を出力しました。
-                                    </div>
-                                </div>
-
-                                <div class="mb-6">
-                                    <label class="block text-[10px] uppercase tracking-wider text-zinc-400 mb-1">制作時間 / Production Time</label>
-                                    <div class="text-sm font-bold text-green-600">約 4時間</div>
-                                </div>
-
-                                <div>
-                                    <label class="block text-[10px] uppercase tracking-wider text-zinc-400 mb-1">編集ソフト / Software</label>
-                                    <div class="flex flex-wrap gap-2 mt-2">
-                                        <span class="px-2 py-1 bg-zinc-100 dark:bg-zinc-800 rounded text-[10px] font-bold tracking-tighter">CAPCUT</span>
-                                    </div>
-                                </div>
-
-                                <div class="pt-4 border-t border-zinc-100 dark:border-zinc-800">
-                                    <label class="block text-[10px] uppercase tracking-wider text-zinc-400 mb-2">動画リンク / Video Link</label>
-                                    <a href="https://youtu.be/6QQUvZPEWeI" target="_blank" class="text-sm font-bold text-green-600 hover:underline break-all block">
-                                        https://youtu.be/6QQUvZPEWeI
-                                    </a>
-                                </div>
+                                <div class="mb-6"><label class="block text-[10px] uppercase tracking-wider text-zinc-400 mb-1">説明 / Description</label><div class="text-sm leading-relaxed font-medium">字幕の文字お越し機能を使い、音声を出力しました。</div></div>
+                                <div class="mb-6"><label class="block text-[10px] uppercase tracking-wider text-zinc-400 mb-1">制作時間 / Production Time</label><div class="text-sm font-bold text-green-600">約 4時間</div></div>
+                                <div><label class="block text-[10px] uppercase tracking-wider text-zinc-400 mb-1">編集ソフト / Software</label><div class="flex flex-wrap gap-2 mt-2"><span class="px-2 py-1 bg-zinc-100 dark:bg-zinc-800 rounded text-[10px] font-bold tracking-tighter">CAPCUT</span></div></div>
+                                <div class="pt-4 border-t border-zinc-100 dark:border-zinc-800"><label class="block text-[10px] uppercase tracking-wider text-zinc-400 mb-2">動画リンク / Video Link</label><a href="https://youtu.be/6QQUvZPEWeI" target="_blank" class="text-sm font-bold text-green-600 hover:underline break-all block">https://youtu.be/6QQUvZPEWeI</a></div>
                             </div>
                         </div>
                     </div>
@@ -150,50 +112,22 @@
 
                 <hr class="border-zinc-200 dark:border-zinc-800">
 
-                <!-- Section 2 -->
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
                     <div class="lg:col-span-8">
                         <div class="video-container">
-                            <!-- Shorts embed works best with /embed/ID -->
-                            <iframe 
-                                id="yt-iframe-2"
-                                src="https://www.youtube.com/embed/iyhY5xJhQLo?rel=0" 
-                                title="YouTube shorts player" 
-                                frameborder="0" 
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                                allowfullscreen>
-                            </iframe>
+                            <iframe id="yt-iframe-2" src="https://www.youtube.com/embed/iyhY5xJhQLo?rel=0" title="YouTube shorts player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                         </div>
                     </div>
-
                     <div class="lg:col-span-4">
                         <div class="bg-white/80 dark:bg-zinc-900/80 backdrop-blur-md p-8 rounded-2xl shadow-xl border border-white/20 dark:border-zinc-800/50 space-y-6">
                             <h3 class="text-xs font-bold uppercase tracking-widest text-green-600 flex items-center border-b border-green-600/20 pb-2">
                                 <i data-lucide="file-text" class="mr-2 w-4 h-4"></i> Project Specs
                             </h3>
-                            
                             <div class="prose prose-sm dark:prose-invert max-w-none">
-                                <div class="mb-6">
-                                    <label class="block text-[10px] uppercase tracking-wider text-zinc-400 mb-1">説明 / Description</label>
-                                    <div class="text-sm leading-relaxed font-medium">初めて製作したショート動画です。ここで初めてvoiceboxを使用しました。</div>
-                                </div>
-                                <div class="mb-6">
-                                    <label class="block text-[10px] uppercase tracking-wider text-zinc-400 mb-1">制作時間 / Production Time</label>
-                                    <div class="text-sm font-bold text-green-600">30分</div>
-                                </div>
-                                <div>
-                                    <label class="block text-[10px] uppercase tracking-wider text-zinc-400 mb-1">編集ソフト / Software</label>
-                                    <div class="flex flex-wrap gap-2 mt-2">
-                                        <span class="px-2 py-1 bg-zinc-100 dark:bg-zinc-800 rounded text-[10px] font-bold tracking-tighter">VOICEVOX</span>
-                                        <span class="px-2 py-1 bg-zinc-100 dark:bg-zinc-800 rounded text-[10px] font-bold tracking-tighter">YMM4</span>
-                                    </div>
-                                </div>
-                                <div class="pt-4 border-t border-zinc-100 dark:border-zinc-800">
-                                    <label class="block text-[10px] uppercase tracking-wider text-zinc-400 mb-2">動画リンク / Video Link</label>
-                                    <a href="https://youtube.com/shorts/iyhY5xJhQLo" target="_blank" class="text-sm font-bold text-green-600 hover:underline break-all block">
-                                        https://youtube.com/shorts/iyhY5xJhQLo
-                                    </a>
-                                </div>
+                                <div class="mb-6"><label class="block text-[10px] uppercase tracking-wider text-zinc-400 mb-1">説明 / Description</label><div class="text-sm leading-relaxed font-medium">初めて製作したショート動画です。ここで初めてvoiceboxを使用しました。</div></div>
+                                <div class="mb-6"><label class="block text-[10px] uppercase tracking-wider text-zinc-400 mb-1">制作時間 / Production Time</label><div class="text-sm font-bold text-green-600">30分</div></div>
+                                <div><label class="block text-[10px] uppercase tracking-wider text-zinc-400 mb-1">編集ソフト / Software</label><div class="flex flex-wrap gap-2 mt-2"><span class="px-2 py-1 bg-zinc-100 dark:bg-zinc-800 rounded text-[10px] font-bold tracking-tighter">VOICEVOX</span><span class="px-2 py-1 bg-zinc-100 dark:bg-zinc-800 rounded text-[10px] font-bold tracking-tighter">YMM4</span></div></div>
+                                <div class="pt-4 border-t border-zinc-100 dark:border-zinc-800"><label class="block text-[10px] uppercase tracking-wider text-zinc-400 mb-2">動画リンク / Video Link</label><a href="https://youtube.com/shorts/iyhY5xJhQLo" target="_blank" class="text-sm font-bold text-green-600 hover:underline break-all block">https://youtube.com/shorts/iyhY5xJhQLo</a></div>
                             </div>
                         </div>
                     </div>
@@ -201,49 +135,22 @@
 
                 <hr class="border-zinc-200 dark:border-zinc-800">
 
-                <!-- Section 3 -->
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
                     <div class="lg:col-span-8">
                         <div class="video-container">
-                            <iframe 
-                                id="yt-iframe-3"
-                                src="https://www.youtube.com/embed/OMqLgw6TRgM?rel=0" 
-                                title="YouTube video player" 
-                                frameborder="0" 
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                                allowfullscreen>
-                            </iframe>
+                            <iframe id="yt-iframe-3" src="https://www.youtube.com/embed/OMqLgw6TRgM?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                         </div>
                     </div>
-
                     <div class="lg:col-span-4">
                         <div class="bg-white/80 dark:bg-zinc-900/80 backdrop-blur-md p-8 rounded-2xl shadow-xl border border-white/20 dark:border-zinc-800/50 space-y-6">
                             <h3 class="text-xs font-bold uppercase tracking-widest text-green-600 flex items-center border-b border-green-600/20 pb-2">
                                 <i data-lucide="file-text" class="mr-2 w-4 h-4"></i> Project Specs
                             </h3>
-                            
                             <div class="prose prose-sm dark:prose-invert max-w-none">
-                                <div class="mb-6">
-                                    <label class="block text-[10px] uppercase tracking-wider text-zinc-400 mb-1">説明 / Description</label>
-                                    <div class="text-sm leading-relaxed font-medium">voiceboxを使用したゲーム解説動画に挑戦してみました。完成後に改善点を多く見つけました。</div>
-                                </div>
-                                <div class="mb-6">
-                                    <label class="block text-[10px] uppercase tracking-wider text-zinc-400 mb-1">制作時間 / Production Time</label>
-                                    <div class="text-sm font-bold text-green-600">6時間</div>
-                                </div>
-                                <div>
-                                    <label class="block text-[10px] uppercase tracking-wider text-zinc-400 mb-1">編集ソフト / Software</label>
-                                    <div class="flex flex-wrap gap-2 mt-2">
-                                        <span class="px-2 py-1 bg-zinc-100 dark:bg-zinc-800 rounded text-[10px] font-bold tracking-tighter">VOICEVOX</span>
-                                        <span class="px-2 py-1 bg-zinc-100 dark:bg-zinc-800 rounded text-[10px] font-bold tracking-tighter">YMM4</span>
-                                    </div>
-                                </div>
-                                <div class="pt-4 border-t border-zinc-100 dark:border-zinc-800">
-                                    <label class="block text-[10px] uppercase tracking-wider text-zinc-400 mb-2">動画リンク / Video Link</label>
-                                    <a href="https://youtu.be/OMqLgw6TRgM" target="_blank" class="text-sm font-bold text-green-600 hover:underline break-all block">
-                                        https://youtu.be/OMqLgw6TRgM
-                                    </a>
-                                </div>
+                                <div class="mb-6"><label class="block text-[10px] uppercase tracking-wider text-zinc-400 mb-1">説明 / Description</label><div class="text-sm leading-relaxed font-medium">voiceboxを使用したゲーム解説動画に挑戦してみました。完成後に改善点を多く見つけました。</div></div>
+                                <div class="mb-6"><label class="block text-[10px] uppercase tracking-wider text-zinc-400 mb-1">制作時間 / Production Time</label><div class="text-sm font-bold text-green-600">6時間</div></div>
+                                <div><label class="block text-[10px] uppercase tracking-wider text-zinc-400 mb-1">編集ソフト / Software</label><div class="flex flex-wrap gap-2 mt-2"><span class="px-2 py-1 bg-zinc-100 dark:bg-zinc-800 rounded text-[10px] font-bold tracking-tighter">VOICEVOX</span><span class="px-2 py-1 bg-zinc-100 dark:bg-zinc-800 rounded text-[10px] font-bold tracking-tighter">YMM4</span></div></div>
+                                <div class="pt-4 border-t border-zinc-100 dark:border-zinc-800"><label class="block text-[10px] uppercase tracking-wider text-zinc-400 mb-2">動画リンク / Video Link</label><a href="https://youtu.be/OMqLgw6TRgM" target="_blank" class="text-sm font-bold text-green-600 hover:underline break-all block">https://youtu.be/OMqLgw6TRgM</a></div>
                             </div>
                         </div>
                     </div>
@@ -251,48 +158,22 @@
 
                 <hr class="border-zinc-200 dark:border-zinc-800">
 
-                <!-- Section 4 -->
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
                     <div class="lg:col-span-8">
                         <div class="video-container">
-                            <iframe 
-                                id="yt-iframe-4"
-                                src="https://www.youtube.com/embed/qLkm-Fe0Mas?rel=0" 
-                                title="YouTube video player" 
-                                frameborder="0" 
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                                allowfullscreen>
-                            </iframe>
+                            <iframe id="yt-iframe-4" src="https://www.youtube.com/embed/qLkm-Fe0Mas?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                         </div>
                     </div>
-
                     <div class="lg:col-span-4">
                         <div class="bg-white/80 dark:bg-zinc-900/80 backdrop-blur-md p-8 rounded-2xl shadow-xl border border-white/20 dark:border-zinc-800/50 space-y-6">
                             <h3 class="text-xs font-bold uppercase tracking-widest text-green-600 flex items-center border-b border-green-600/20 pb-2">
                                 <i data-lucide="file-text" class="mr-2 w-4 h-4"></i> Project Specs
                             </h3>
-                            
                             <div class="prose prose-sm dark:prose-invert max-w-none">
-                                <div class="mb-6">
-                                    <label class="block text-[10px] uppercase tracking-wider text-zinc-400 mb-1">説明 / Description</label>
-                                    <div class="text-sm leading-relaxed font-medium">崩壊スターレイルのファンムービーを制作しました。編集スピードや構成、音声との互換性を考慮できるようになりました。</div>
-                                </div>
-                                <div class="mb-6">
-                                    <label class="block text-[10px] uppercase tracking-wider text-zinc-400 mb-1">制作時間 / Production Time</label>
-                                    <div class="text-sm font-bold text-green-600">5時間</div>
-                                </div>
-                                <div>
-                                    <label class="block text-[10px] uppercase tracking-wider text-zinc-400 mb-1">編集ソフト / Software</label>
-                                    <div class="flex flex-wrap gap-2 mt-2">
-                                        <span class="px-2 py-1 bg-zinc-100 dark:bg-zinc-800 rounded text-[10px] font-bold tracking-tighter">CAPCUT</span>
-                                    </div>
-                                </div>
-                                <div class="pt-4 border-t border-zinc-100 dark:border-zinc-800">
-                                    <label class="block text-[10px] uppercase tracking-wider text-zinc-400 mb-2">動画リンク / Video Link</label>
-                                    <a href="https://youtu.be/qLkm-Fe0Mas" target="_blank" class="text-sm font-bold text-green-600 hover:underline break-all block">
-                                        https://youtu.be/qLkm-Fe0Mas
-                                    </a>
-                                </div>
+                                <div class="mb-6"><label class="block text-[10px] uppercase tracking-wider text-zinc-400 mb-1">説明 / Description</label><div class="text-sm leading-relaxed font-medium">崩壊スターレイルのファンムービーを制作しました。編集スピードや構成、音声との互換性を考慮できるようになりました。</div></div>
+                                <div class="mb-6"><label class="block text-[10px] uppercase tracking-wider text-zinc-400 mb-1">制作時間 / Production Time</label><div class="text-sm font-bold text-green-600">5時間</div></div>
+                                <div><label class="block text-[10px] uppercase tracking-wider text-zinc-400 mb-1">編集ソフト / Software</label><div class="flex flex-wrap gap-2 mt-2"><span class="px-2 py-1 bg-zinc-100 dark:bg-zinc-800 rounded text-[10px] font-bold tracking-tighter">CAPCUT</span></div></div>
+                                <div class="pt-4 border-t border-zinc-100 dark:border-zinc-800"><label class="block text-[10px] uppercase tracking-wider text-zinc-400 mb-2">動画リンク / Video Link</label><a href="https://youtu.be/qLkm-Fe0Mas" target="_blank" class="text-sm font-bold text-green-600 hover:underline break-all block">https://youtu.be/qLkm-Fe0Mas</a></div>
                             </div>
                         </div>
                     </div>
@@ -300,13 +181,12 @@
 
                 <hr class="border-zinc-200 dark:border-zinc-800">
 
-                <!-- Section 5 -->
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
                     <div class="lg:col-span-8">
                         <div class="video-container">
                             <iframe 
                                 id="yt-iframe-5"
-                                src="https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0" 
+                                src="https://www.youtube.com/embed/kL-DRakCgIo?rel=0" 
                                 title="YouTube video player" 
                                 frameborder="0" 
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
@@ -314,27 +194,33 @@
                             </iframe>
                         </div>
                     </div>
-
                     <div class="lg:col-span-4">
                         <div class="bg-white/80 dark:bg-zinc-900/80 backdrop-blur-md p-8 rounded-2xl shadow-xl border border-white/20 dark:border-zinc-800/50 space-y-6">
                             <h3 class="text-xs font-bold uppercase tracking-widest text-green-600 flex items-center border-b border-green-600/20 pb-2">
                                 <i data-lucide="file-text" class="mr-2 w-4 h-4"></i> Project Specs
                             </h3>
-                            
                             <div class="prose prose-sm dark:prose-invert max-w-none">
                                 <div class="mb-6">
                                     <label class="block text-[10px] uppercase tracking-wider text-zinc-400 mb-1">説明 / Description</label>
-                                    <div class="text-sm font-bold">新プロジェクト 5</div>
+                                    <div class="text-sm leading-relaxed font-medium italic">
+                                        崩壊スターレイルのMADを制作しました。初期の投稿の頃よりも、シーンに合わせたエフェクトの使い分けやタイミングの調整がよりスムーズにできるようになりました。
+                                    </div>
                                 </div>
                                 <div class="mb-6">
                                     <label class="block text-[10px] uppercase tracking-wider text-zinc-400 mb-1">制作時間 / Production Time</label>
-                                    <div class="text-sm font-bold text-green-600">未設定</div>
+                                    <div class="text-sm font-bold text-green-600">5時間30分</div>
                                 </div>
                                 <div>
                                     <label class="block text-[10px] uppercase tracking-wider text-zinc-400 mb-1">編集ソフト / Software</label>
                                     <div class="flex flex-wrap gap-2 mt-2">
                                         <span class="px-2 py-1 bg-zinc-100 dark:bg-zinc-800 rounded text-[10px] font-bold tracking-tighter">CAPCUT</span>
                                     </div>
+                                </div>
+                                <div class="pt-4 border-t border-zinc-100 dark:border-zinc-800">
+                                    <label class="block text-[10px] uppercase tracking-wider text-zinc-400 mb-2">動画リンク / Video Link</label>
+                                    <a href="https://youtu.be/kL-DRakCgIo" target="_blank" class="text-sm font-bold text-green-600 hover:underline break-all block">
+                                        https://youtu.be/kL-DRakCgIo
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -343,42 +229,15 @@
 
                 <hr class="border-zinc-200 dark:border-zinc-800">
 
-                <!-- Section 6 -->
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-                    <div class="lg:col-span-8">
-                        <div class="video-container">
-                            <iframe 
-                                id="yt-iframe-6"
-                                src="https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0" 
-                                title="YouTube video player" 
-                                frameborder="0" 
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                                allowfullscreen>
-                            </iframe>
-                        </div>
-                    </div>
-
+                    <div class="lg:col-span-8"><div class="video-container"><iframe id="yt-iframe-6" src="https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div></div>
                     <div class="lg:col-span-4">
                         <div class="bg-white/80 dark:bg-zinc-900/80 backdrop-blur-md p-8 rounded-2xl shadow-xl border border-white/20 dark:border-zinc-800/50 space-y-6">
-                            <h3 class="text-xs font-bold uppercase tracking-widest text-green-600 flex items-center border-b border-green-600/20 pb-2">
-                                <i data-lucide="file-text" class="mr-2 w-4 h-4"></i> Project Specs
-                            </h3>
-                            
+                            <h3 class="text-xs font-bold uppercase tracking-widest text-green-600 flex items-center border-b border-green-600/20 pb-2"><i data-lucide="file-text" class="mr-2 w-4 h-4"></i> Project Specs</h3>
                             <div class="prose prose-sm dark:prose-invert max-w-none">
-                                <div class="mb-6">
-                                    <label class="block text-[10px] uppercase tracking-wider text-zinc-400 mb-1">説明 / Description</label>
-                                    <div class="text-sm font-bold">新プロジェクト 6</div>
-                                </div>
-                                <div class="mb-6">
-                                    <label class="block text-[10px] uppercase tracking-wider text-zinc-400 mb-1">制作時間 / Production Time</label>
-                                    <div class="text-sm font-bold text-green-600">未設定</div>
-                                </div>
-                                <div>
-                                    <label class="block text-[10px] uppercase tracking-wider text-zinc-400 mb-1">編集ソフト / Software</label>
-                                    <div class="flex flex-wrap gap-2 mt-2">
-                                        <span class="px-2 py-1 bg-zinc-100 dark:bg-zinc-800 rounded text-[10px] font-bold tracking-tighter">CAPCUT</span>
-                                    </div>
-                                </div>
+                                <div class="mb-6"><label class="block text-[10px] uppercase tracking-wider text-zinc-400 mb-1">説明 / Description</label><div class="text-sm font-bold text-zinc-400 italic">Next Project...</div></div>
+                                <div class="mb-6"><label class="block text-[10px] uppercase tracking-wider text-zinc-400 mb-1">制作時間 / Production Time</label><div class="text-sm font-bold text-green-600">未設定</div></div>
+                                <div><label class="block text-[10px] uppercase tracking-wider text-zinc-400 mb-1">編集ソフト / Software</label><div class="flex flex-wrap gap-2 mt-2"><span class="px-2 py-1 bg-zinc-100 dark:bg-zinc-800 rounded text-[10px] font-bold tracking-tighter">CAPCUT</span></div></div>
                             </div>
                         </div>
                     </div>
@@ -388,21 +247,20 @@
         </div>
     </div>
 
-    <!-- Footer -->
     <footer class="border-t bg-zinc-50 dark:bg-zinc-900 border-zinc-200 dark:border-zinc-800 relative z-20">
-        <div class="max-w-6xl mx-auto px-4 py-16 grid grid-cols-1 md:grid-cols-2 gap-12">
-            <div class="space-y-6 text-left">
-                <h5 class="text-2xl font-serif text-left">Portfolio</h5>
-                <p class="text-sm text-zinc-500 leading-relaxed text-left">Built with precision and passion for modern aesthetics.</p>
+        <div class="max-w-6xl mx-auto px-4 py-16 grid grid-cols-1 md:grid-cols-2 gap-12 text-left">
+            <div class="space-y-6">
+                <h5 class="text-2xl font-serif">Portfolio</h5>
+                <p class="text-sm text-zinc-500">Built with precision and passion for modern aesthetics.</p>
             </div>
             <div class="flex flex-col items-start md:items-end">
                 <h5 class="text-sm font-bold uppercase tracking-widest mb-6">Connect</h5>
                 <div class="flex space-x-4">
                     <a href="https://www.instagram.com/takumi05012/" target="_blank" class="p-3 rounded-full bg-white shadow-sm dark:bg-zinc-800 hover:text-green-600 transition-colors flex items-center justify-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-lg"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg>
+                        <i data-lucide="instagram"></i>
                     </a>
                     <a href="https://www.youtube.com/@Volvox0612" target="_blank" class="p-3 rounded-full bg-white shadow-sm dark:bg-zinc-800 hover:text-green-600 transition-colors flex items-center justify-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-lg"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 2-2 69.44 69.44 0 0 1 15 0 2 2 0 0 1 2 2 24.12 24.12 0 0 1 0 10 2 2 0 0 1-2 2 69.44 69.44 0 0 1-15 0 2 2 0 0 1-2-2z"></path><polyline points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"></polyline></svg>
+                        <i data-lucide="youtube"></i>
                     </a>
                 </div>
             </div>
@@ -411,35 +269,21 @@
     </footer>
 
     <button id="scroll-top-btn" class="fixed bottom-8 right-8 p-4 rounded-full shadow-2xl transition-all duration-300 transform translate-y-12 opacity-0 bg-zinc-900 dark:bg-green-700 hover:bg-green-600 text-white z-50">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide"><path d="m18 15-6-6-6 6"></path></svg>
+        <i data-lucide="chevron-up"></i>
     </button>
 
     <script>
         lucide.createIcons();
-        
-        // --- Dark Mode ---
         const darkModeToggle = document.getElementById('dark-mode-toggle');
         darkModeToggle.addEventListener('click', () => {
             document.documentElement.classList.toggle('dark');
-            const isDark = document.documentElement.classList.contains('dark');
-            const darkIcon = document.getElementById('dark-icon');
-            const lightIcon = document.getElementById('light-icon');
-            
-            if (isDark) {
-                darkIcon.classList.add('hidden');
-                lightIcon.classList.remove('hidden');
-            } else {
-                darkIcon.classList.remove('hidden');
-                lightIcon.classList.add('hidden');
-            }
+            document.getElementById('dark-icon').classList.toggle('hidden');
+            document.getElementById('light-icon').classList.toggle('hidden');
             lucide.createIcons();
         });
-
-        // --- Scroll Effects ---
         const heroHeader = document.getElementById('hero-header');
         const stickyNav = document.getElementById('sticky-nav');
         const scrollTopBtn = document.getElementById('scroll-top-btn');
-
         window.addEventListener('scroll', () => {
             const scrollPos = window.scrollY;
             heroHeader.style.opacity = Math.max(0, 1 - scrollPos / 300);
