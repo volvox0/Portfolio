@@ -158,19 +158,18 @@
     </div>
 
     <!-- Hero Header with Background and Fade Effect -->
-    <header id="hero-header" class="relative py-32 text-center bg-cover bg-center bg-no-repeat z-10 overflow-hidden" style="background-image: url('header.png');">
+    <header id="hero-header" class="relative py-32 text-center bg-cover bg-center bg-no-repeat z-10 overflow-hidden" style="background-image: url('images/header.png');">
         <!-- Overlay for readability -->
         <div class="absolute inset-0 bg-white/20 dark:bg-black/30"></div>
         
-        <!-- Bird Animations using flybird.gif!qk277 (Left to Right) -->
-        <img src="flybird.gif!qk277" class="bird bird-1" alt="flying bird">
-        <img src="flybird.gif!qk277" class="bird bird-2" alt="flying bird">
-        <img src="flybird.gif!qk277" class="bird bird-3" alt="flying bird">
-        <img src="flybird.gif!qk277" class="bird bird-4" alt="flying bird">
+        <!-- Bird Animations -->
+        <img src="images/flybird.gif!qk277" class="bird bird-1" alt="flying bird">
+        <img src="images/flybird.gif!qk277" class="bird bird-2" alt="flying bird">
+        <img src="images/flybird.gif!qk277" class="bird bird-3" alt="flying bird">
+        <img src="images/flybird.gif!qk277" class="bird bird-4" alt="flying bird">
 
-        <!-- New Bird Animations using flybird2.gif (Right to Left) -->
-        <img src="flybird2.gif" class="bird-rev bird-rev-1" alt="flying bird reverse">
-        <img src="flybird2.gif" class="bird-rev bird-rev-2" alt="flying bird reverse">
+        <img src="images/flybird2.gif" class="bird-rev bird-rev-1" alt="flying bird reverse">
+        <img src="images/flybird2.gif" class="bird-rev bird-rev-2" alt="flying bird reverse">
 
         <!-- Animated content block -->
         <div class="relative z-10 hero-text-container animate-hero-zoom">
@@ -181,7 +180,7 @@
         <!-- tori.gif (Idle animation) aligned with navigation -->
         <div class="absolute bottom-0 left-0 w-full h-full pointer-events-none">
             <div class="max-w-6xl mx-auto px-4 relative h-full">
-                <img src="tori.gif" id="tori-idle" alt="tori" width="60">
+                <img src="images/tori.gif" id="tori-idle" alt="tori" width="60">
             </div>
         </div>
     </header>
@@ -208,7 +207,7 @@
     </nav>
 
     <!-- Main Content Area with background image 'back.png' -->
-    <div class="bg-[url('back.png')] bg-cover bg-center bg-fixed">
+    <div class="bg-[url('images/back.png')] bg-cover bg-center bg-fixed">
         <!-- Semi-transparent overlay -->
         <div class="bg-white/40 dark:bg-zinc-950/40 backdrop-blur-[2px]">
             <main class="max-w-6xl mx-auto px-4 py-12">
@@ -303,7 +302,7 @@
                         <!-- About Widget -->
                         <div class="p-8 rounded-2xl text-center space-y-6 bg-zinc-50/90 dark:bg-zinc-900/90 shadow-xl backdrop-blur-md">
                             <img 
-                                src="IMG_2939.jpg" 
+                                src="images/IMG_2939.jpg" 
                                 alt="Author" 
                                 class="w-32 h-32 rounded-full mx-auto object-cover border-4 border-white dark:border-zinc-800 shadow-xl"
                                 onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=300'"
@@ -357,21 +356,16 @@
     <!-- Footer -->
     <footer class="border-t bg-zinc-50 dark:bg-zinc-900 border-zinc-200 dark:border-zinc-800 relative z-20">
         <div class="max-w-6xl mx-auto px-4 py-16 grid grid-cols-1 md:grid-cols-2 gap-12">
-            <div class="space-y-6">
-                <h5 class="text-2xl font-serif">Portfolio</h5>
-                <p class="text-sm text-zinc-500 leading-relaxed">
-                    A curated collection of thoughts and projects by Nagano Takumi. 
-                    Built with precision and passion for modern aesthetics.
-                </p>
+            <div class="space-y-6 text-left">
+                <h5 class="text-2xl font-serif text-left">Portfolio</h5>
+                <p class="text-sm text-zinc-500 text-left leading-relaxed">Built with precision and passion for modern aesthetics.</p>
             </div>
             <div class="flex flex-col items-start md:items-end">
                 <h5 class="text-sm font-bold uppercase tracking-widest mb-6">Connect</h5>
                 <div class="flex space-x-4">
-                    <!-- Instagram -->
                     <a href="https://www.instagram.com/takumi05012/" target="_blank" class="p-3 rounded-full bg-white shadow-sm dark:bg-zinc-800 hover:text-green-600 transition-colors flex items-center justify-center">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-lg"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg>
                     </a>
-                    <!-- YouTube -->
                     <a href="https://www.youtube.com/@Volvox0612" target="_blank" class="p-3 rounded-full bg-white shadow-sm dark:bg-zinc-800 hover:text-green-600 transition-colors flex items-center justify-center">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-lg"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 2-2 69.44 69.44 0 0 1 15 0 2 2 0 0 1 2 2 24.12 24.12 0 0 1 0 10 2 2 0 0 1-2 2 69.44 69.44 0 0 1-15 0 2 2 0 0 1-2-2z"></path><polyline points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"></polyline></svg>
                     </a>
@@ -383,98 +377,36 @@
         </div>
     </footer>
 
-    <!-- Scroll Top Button -->
-    <button 
-        id="scroll-top-btn"
-        class="fixed bottom-8 right-8 p-4 rounded-full shadow-2xl transition-all duration-300 transform translate-y-12 opacity-0 bg-zinc-900 dark:bg-green-700 hover:bg-green-600 text-white z-50"
-    >
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide"><path d="m18 15-6-6-6 6"></path></svg>
-    </button>
-
-    <!-- Lucide Icons Library -->
     <script src="https://unpkg.com/lucide@latest"></script>
     <script>
-        // アイコンの初期化
         lucide.createIcons();
-
-        // ダークモード切り替え
         const darkModeToggle = document.getElementById('dark-mode-toggle');
-        const darkIcon = document.getElementById('dark-icon');
-        const lightIcon = document.getElementById('light-icon');
-        
         darkModeToggle.addEventListener('click', () => {
             document.documentElement.classList.toggle('dark');
-            const isDark = document.documentElement.classList.contains('dark');
-            
-            if (isDark) {
-                darkIcon.classList.add('hidden');
-                lightIcon.classList.remove('hidden');
-            } else {
-                darkIcon.classList.remove('hidden');
-                lightIcon.classList.add('hidden');
-            }
-            // アイコン再描画
+            document.getElementById('dark-icon').classList.toggle('hidden');
+            document.getElementById('light-icon').classList.toggle('hidden');
             lucide.createIcons();
         });
-
-        // エレメント取得
         const heroHeader = document.getElementById('hero-header');
         const stickyNav = document.getElementById('sticky-nav');
         const scrollTopBtn = document.getElementById('scroll-top-btn');
         const toriIdle = document.getElementById('tori-idle');
-
-        // アイドル時（無操作時）の鳥のタイマー
         let idleTimer;
-
-        const showTori = () => {
-            toriIdle.classList.add('show');
-        };
-
-        const hideTori = () => {
-            toriIdle.classList.remove('show');
-            resetIdleTimer();
-        };
-
-        const resetIdleTimer = () => {
-            clearTimeout(idleTimer);
-            idleTimer = setTimeout(showTori, 2000);
-        };
-
-        // スクロール検知
+        const showTori = () => toriIdle.classList.add('show');
+        const hideTori = () => { toriIdle.classList.remove('show'); resetIdleTimer(); };
+        const resetIdleTimer = () => { clearTimeout(idleTimer); idleTimer = setTimeout(showTori, 2000); };
         window.addEventListener('scroll', () => {
             const scrollPos = window.scrollY;
-
-            // ヘッダーのフェードアウト効果
-            const opacity = Math.max(0, 1 - scrollPos / 300);
-            heroHeader.style.opacity = opacity;
-
-            // ナビゲーションの固定表示切り替え
+            heroHeader.style.opacity = Math.max(0, 1 - scrollPos / 300);
             if (scrollPos > 50) {
-                stickyNav.classList.add('shadow-lg', 'py-2');
-                stickyNav.classList.remove('py-4');
-                scrollTopBtn.classList.remove('translate-y-12', 'opacity-0');
-                scrollTopBtn.classList.add('translate-y-0', 'opacity-100');
+                stickyNav.classList.add('shadow-lg', 'py-2'); stickyNav.classList.remove('py-4');
             } else {
-                stickyNav.classList.remove('shadow-lg', 'py-2');
-                stickyNav.classList.add('py-4');
-                scrollTopBtn.classList.add('translate-y-12', 'opacity-0');
-                scrollTopBtn.classList.remove('translate-y-0', 'opacity-100');
+                stickyNav.classList.remove('shadow-lg', 'py-2'); stickyNav.classList.add('py-4');
             }
-
-            // 鳥を隠す
             hideTori();
         });
-
-        // 画面クリック検知
         window.addEventListener('click', hideTori);
-
-        // 初回タイマー開始
         resetIdleTimer();
-
-        // トップへ戻る
-        scrollTopBtn.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
     </script>
 </body>
 </html>
