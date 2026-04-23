@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio - Nagano Takumi</title>
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: Playfair Display for Serif, Inter for Sans -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
@@ -22,182 +20,74 @@
         }
     </script>
     <style>
-        /* Lucideアイコンのサイズ微調整用 */
-        .lucide {
-            width: 1.25rem;
-            height: 1.25rem;
-            display: inline-block;
-        }
-        .lucide-lg {
-            width: 1.5rem;
-            height: 1.5rem;
-        }
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* ヘッダーテキストの初期状態（アニメーション前） */
-        .hero-text-container {
-            opacity: 0;
-            transform: scale(1.25);
-            filter: blur(10px);
-        }
-
-        /* ズームアウト・フェードインアニメーション */
+        .lucide { width: 1.25rem; height: 1.25rem; display: inline-block; }
+        .lucide-lg { width: 1.5rem; height: 1.5rem; }
+        html { scroll-behavior: smooth; }
+        .hero-text-container { opacity: 0; transform: scale(1.25); filter: blur(10px); }
         @keyframes hero-zoom-out {
-            0% {
-                opacity: 0;
-                transform: scale(1.25);
-                filter: blur(10px);
-            }
-            100% {
-                opacity: 1;
-                transform: scale(1);
-                filter: blur(0);
-            }
+            0% { opacity: 0; transform: scale(1.25); filter: blur(10px); }
+            100% { opacity: 1; transform: scale(1); filter: blur(0); }
         }
-
-        .animate-hero-zoom {
-            animation: hero-zoom-out 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-
-        /* 小鳥の飛行アニメーション（左から右へ） */
+        .animate-hero-zoom { animation: hero-zoom-out 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
         @keyframes birds-fly {
-            0% {
-                left: -200px;
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-20px);
-            }
-            100% {
-                left: 110vw;
-                transform: translateY(-10px);
-            }
+            0% { left: -200px; transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+            100% { left: 110vw; transform: translateY(-10px); }
         }
-
-        /* 小鳥の飛行アニメーション（右から左へ） */
         @keyframes birds-fly-rev {
-            0% {
-                right: -300px;
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-30px);
-            }
-            100% {
-                right: 110vw;
-                transform: translateY(-15px);
-            }
+            0% { right: -300px; transform: translateY(0); }
+            50% { transform: translateY(-30px); }
+            100% { right: 110vw; transform: translateY(-15px); }
         }
-
-        .bird {
-            position: absolute;
-            left: -200px; /* アニメーション開始前も画面外に配置 */
-            pointer-events: none;
-            z-index: 5;
-            animation: birds-fly 15s linear infinite;
-            opacity: 0.8;
-            filter: brightness(0.9);
-        }
-
-        .bird-rev {
-            position: absolute;
-            right: -300px; /* 右画面外に配置 */
-            pointer-events: none;
-            z-index: 5;
-            animation: birds-fly-rev 12s linear infinite;
-            opacity: 0.75;
-            filter: brightness(0.9);
-        }
-
-        /* 個別の鳥の設定（左から右） */
+        .bird { position: absolute; left: -200px; z-index: 5; animation: birds-fly 15s linear infinite; opacity: 0.8; filter: brightness(0.9); pointer-events: none; }
+        .bird-rev { position: absolute; right: -300px; z-index: 5; animation: birds-fly-rev 12s linear infinite; opacity: 0.75; filter: brightness(0.9); pointer-events: none; }
         .bird-1 { top: 15%; width: 80px; animation-delay: 0s; animation-duration: 18s; }
         .bird-2 { top: 35%; width: 60px; animation-delay: 4s; animation-duration: 22s; }
         .bird-3 { top: 20%; width: 70px; animation-delay: 9s; animation-duration: 16s; }
         .bird-4 { top: 45%; width: 50px; animation-delay: 13s; animation-duration: 25s; }
-
-        /* 個別の鳥の設定（右から左: flybird2.gif）サイズを2倍に変更 */
         .bird-rev-1 { top: 25%; width: 140px; animation-delay: 2s; animation-duration: 14s; }
         .bird-rev-2 { top: 55%; width: 110px; animation-delay: 10s; animation-duration: 11s; }
-
-        /* tori.gif のスタイル設定 */
-        #tori-idle {
-            position: absolute;
-            bottom: -40px; /* 開始位置をさらに下げる */
-            left: 55px;   /* VideoとGraphicの間に合わせる位置 */
-            transform: scale(1.25); /* 1.5倍から1.25倍に変更 */
-            pointer-events: none;
-            z-index: 30;
-            transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
-            opacity: 0;
-        }
-        #tori-idle.show {
-            bottom: -5px; /* ラインから少しだけ出す（位置を下げる） */
-            opacity: 1;
-        }
+        #tori-idle { position: absolute; bottom: -40px; left: 55px; transform: scale(1.25); pointer-events: none; z-index: 30; transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1); opacity: 0; }
+        #tori-idle.show { bottom: -5px; opacity: 1; }
     </style>
 </head>
 <body class="transition-colors duration-300 text-zinc-900 dark:text-zinc-100">
-
-    <!-- Top Bar -->
     <div id="top-bar" class="w-full py-2 border-b transition-colors bg-zinc-50/100 dark:bg-zinc-900/100 border-zinc-200 dark:border-zinc-800 relative z-20">
         <div class="max-w-6xl mx-auto px-4 flex justify-between items-center text-xs tracking-widest uppercase">
-            <div class="flex space-x-6 hidden md:flex">
-                <!-- Links removed as requested -->
-            </div>
+            <div></div>
             <div class="flex space-x-4">
-                <a href="https://www.youtube.com/@Volvox0612" target="_blank" class="hover:text-green-600">
-                    <i data-lucide="youtube"></i>
-                </a>
-                <a href="https://www.instagram.com/takumi05012/" target="_blank" class="hover:text-green-600">
-                    <i data-lucide="instagram"></i>
-                </a>
+                <a href="https://www.youtube.com/@Volvox0612" target="_blank" class="hover:text-green-600"><i data-lucide="youtube"></i></a>
+                <a href="https://www.instagram.com/takumi05012/" target="_blank" class="hover:text-green-600"><i data-lucide="instagram"></i></a>
             </div>
         </div>
     </div>
-
-    <!-- Hero Header with Background and Fade Effect -->
     <header id="hero-header" class="relative py-32 text-center bg-cover bg-center bg-no-repeat z-10 overflow-hidden" style="background-image: url('images/header.png');">
-        <!-- Overlay for readability -->
         <div class="absolute inset-0 bg-white/20 dark:bg-black/30"></div>
-        
-        <!-- Bird Animations -->
         <img src="images/flybird.gif!qk277" class="bird bird-1" alt="flying bird">
         <img src="images/flybird.gif!qk277" class="bird bird-2" alt="flying bird">
         <img src="images/flybird.gif!qk277" class="bird bird-3" alt="flying bird">
         <img src="images/flybird.gif!qk277" class="bird bird-4" alt="flying bird">
-
         <img src="images/flybird2.gif" class="bird-rev bird-rev-1" alt="flying bird reverse">
         <img src="images/flybird2.gif" class="bird-rev bird-rev-2" alt="flying bird reverse">
-
-        <!-- Animated content block -->
         <div class="relative z-10 hero-text-container animate-hero-zoom">
             <h1 class="text-6xl md:text-8xl font-serif mb-2 tracking-tighter">Portfolio</h1>
             <p class="text-sm tracking-[0.3em] uppercase text-zinc-600 dark:text-zinc-300">Nagano Takumi</p>
         </div>
-
-        <!-- tori.gif (Idle animation) aligned with navigation -->
         <div class="absolute bottom-0 left-0 w-full h-full pointer-events-none">
             <div class="max-w-6xl mx-auto px-4 relative h-full">
                 <img src="images/tori.gif" id="tori-idle" alt="tori" width="60">
             </div>
         </div>
     </header>
-
-    <!-- Sticky Navigation -->
     <nav id="sticky-nav" class="sticky top-0 z-50 transition-all duration-300 py-4 bg-white/95 dark:bg-zinc-900/95 backdrop-blur-md border-y border-zinc-100 dark:border-zinc-800">
         <div class="max-w-6xl mx-auto px-4 flex justify-between items-center">
-            <!-- Navigation Links -->
             <div class="flex space-x-8 text-[10px] uppercase tracking-[0.2em] font-bold">
                 <a href="video-editing.html" class="hover:text-green-600 transition-colors">Video</a>
                 <a href="graphic-design.html" class="hover:text-green-600 transition-colors">Graphic</a>
                 <a href="app-development.html" class="hover:text-green-600 transition-colors">App</a>
                 <a href="hobbies.html" class="hover:text-green-600 transition-colors">Hobby</a>
             </div>
-
             <div class="flex items-center space-x-6">
-                <!-- Dark Mode Toggle -->
                 <button id="dark-mode-toggle" class="p-2 hover:text-green-600 transition-colors">
                     <i id="dark-icon" data-lucide="moon"></i>
                     <i id="light-icon" data-lucide="sun" class="hidden"></i>
@@ -205,132 +95,64 @@
             </div>
         </div>
     </nav>
-
-    <!-- Main Content Area with background image 'back.png' -->
     <div class="bg-[url('images/back.png')] bg-cover bg-center bg-fixed">
-        <!-- Semi-transparent overlay -->
         <div class="bg-white/40 dark:bg-zinc-950/40 backdrop-blur-[2px]">
             <main class="max-w-6xl mx-auto px-4 py-12">
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
-                    
-                    <!-- Main Feed -->
                     <div class="lg:col-span-8 space-y-16">
-                        
-                        <!-- Featured: 動画編集 -->
                         <article class="relative group overflow-hidden rounded-2xl shadow-2xl transition-transform duration-500 hover:-translate-y-1 bg-white dark:bg-zinc-900">
-                            <img 
-                                src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&q=80&w=1200" 
-                                alt="Video Editing" 
-                                class="w-full h-[500px] object-cover transition-transform duration-700 group-hover:scale-105"
-                            />
+                            <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&q=80&w=1200" alt="Video Editing" class="w-full h-[500px] object-cover transition-transform duration-700 group-hover:scale-105" />
                             <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8 md:p-12 text-white">
                                 <div class="flex gap-2 mb-4">
                                     <span class="bg-green-600 text-[10px] px-2 py-1 uppercase tracking-tighter font-bold">Creative</span>
                                     <span class="bg-green-600 text-[10px] px-2 py-1 uppercase tracking-tighter font-bold">Video</span>
                                 </div>
                                 <h2 class="text-3xl md:text-5xl font-serif mb-4 leading-tight">動画編集 / Video Editing</h2>
-                                <p class="text-zinc-300 text-sm md:text-base max-w-xl mb-6 line-clamp-2">
-                                    YouTube動画からプロモーションビデオまで、ストーリーテリングを重視した映像制作。Premiere ProやCapCutをメインに使用し、高品質な編集を提供します。
-                                </p>
+                                <p class="text-zinc-300 text-sm md:text-base max-w-xl mb-6 line-clamp-2">YouTube動画からプロモーションビデオまで、ストーリーテリングを重視した映像制作。Premiere ProやCapCutをメインに使用し、高品質な編集を提供します。</p>
                                 <div class="flex items-center justify-between">
-                                   <a href="video-editing.html" class="flex items-center text-xs uppercase tracking-widest font-bold border-b border-white pb-1 hover:text-green-400 hover:border-green-400 transition-all">
-                                    詳細を見る <i data-lucide="external-link" class="ml-2 w-3 h-3"></i>
-                                  </a>
+                                   <a href="video-editing.html" class="flex items-center text-xs uppercase tracking-widest font-bold border-b border-white pb-1 hover:text-green-400 hover:border-green-400 transition-all">詳細を見る <i data-lucide="external-link" class="ml-2 w-3 h-3"></i></a>
                                   <span class="text-xs text-zinc-400">2024-03-20</span>
                                 </div>
                             </div>
                         </article>
-
-                        <!-- Grid Posts -->
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                            <!-- デザイン -->
                             <article class="flex flex-col space-y-4 group p-4 rounded-xl bg-white/80 dark:bg-zinc-900/80 shadow-lg backdrop-blur-sm">
                                 <div class="overflow-hidden rounded-xl aspect-[4/3]">
-                                    <a href="graphic-design.html">
-                                        <img 
-                                            src="https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&q=80&w=800" 
-                                            alt="Design" 
-                                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                                        />
-                                    </a>
+                                    <a href="graphic-design.html"><img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&q=80&w=800" alt="Design" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" /></a>
                                 </div>
                                 <div class="space-y-2">
-                                    <div class="flex items-center text-[10px] uppercase tracking-widest text-green-600 font-bold">
-                                        Design • Creative
-                                    </div>
-                                    <a href="graphic-design.html">
-                                        <h3 class="text-xl font-serif group-hover:text-green-600 transition-colors cursor-pointer">
-                                            デザイン / Graphic Design
-                                        </h3>
-                                    </a>
-                                    <p class="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
-                                        ロゴ制作、バナー広告、UI/UXデザインなど、ブランドの価値を視覚的に伝えるデザインワーク。シンプルかつ機能的な美しさを追求しています。
-                                    </p>
+                                    <div class="flex items-center text-[10px] uppercase tracking-widest text-green-600 font-bold">Design • Creative</div>
+                                    <a href="graphic-design.html"><h3 class="text-xl font-serif group-hover:text-green-600 transition-colors cursor-pointer">デザイン / Graphic Design</h3></a>
+                                    <p class="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">ロゴ制作、バナー広告、UI/UXデザインなど、ブランドの価値を視覚的に伝えるデザインワーク。</p>
                                 </div>
                             </article>
-
-                            <!-- スマホアプリ -->
                             <article class="flex flex-col space-y-4 group p-4 rounded-xl bg-white/80 dark:bg-zinc-900/80 shadow-lg backdrop-blur-sm">
                                 <div class="overflow-hidden rounded-xl aspect-[4/3]">
-                                    <a href="app-development.html">
-                                        <img 
-                                            src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&q=80&w=800" 
-                                            alt="App Development" 
-                                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                                        />
-                                    </a>
+                                    <a href="app-development.html"><img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&q=80&w=800" alt="App Development" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" /></a>
                                 </div>
                                 <div class="space-y-2">
-                                    <div class="flex items-center text-[10px] uppercase tracking-widest text-green-600 font-bold">
-                                        Tech • App
-                                    </div>
-                                    <a href="app-development.html">
-                                        <h3 class="text-xl font-serif group-hover:text-green-600 transition-colors cursor-pointer">
-                                            スマホアプリ / Mobile App Development
-                                        </h3>
-                                    </a>
-                                    <p class="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
-                                        ユーザー体験を最優先に考えたスマートフォンアプリの開発。最新の技術を用いて、直感的で使いやすいモバイルソリューションを構築します。
-                                    </p>
+                                    <div class="flex items-center text-[10px] uppercase tracking-widest text-green-600 font-bold">Tech • App</div>
+                                    <a href="app-development.html"><h3 class="text-xl font-serif group-hover:text-green-600 transition-colors cursor-pointer">スマホアプリ / App Development</h3></a>
+                                    <p class="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">ユーザー体験を最優先に考えたスマートフォンアプリの開発。直感的で使いやすいソリューションを構築します。</p>
                                 </div>
                             </article>
                         </div>
                     </div>
-
-                    <!-- Sidebar -->
                     <aside class="lg:col-span-4 space-y-12 relative z-10">
-                        <!-- About Widget -->
                         <div class="p-8 rounded-2xl text-center space-y-6 bg-zinc-50/90 dark:bg-zinc-900/90 shadow-xl backdrop-blur-md">
-                            <img 
-                                src="images/IMG_2939.jpg" 
-                                alt="Author" 
-                                class="w-32 h-32 rounded-full mx-auto object-cover border-4 border-white dark:border-zinc-800 shadow-xl"
-                                onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=300'"
-                            />
+                            <img src="images/IMG_2939.jpg" alt="Author" class="w-32 h-32 rounded-full mx-auto object-cover border-4 border-white dark:border-zinc-800 shadow-xl" onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=300'" />
                             <div>
                                 <h4 class="text-xs tracking-[0.2em] font-bold uppercase mb-2">Nagano Takumi</h4>
-                                <p class="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
-                                    熊本を拠点に活動する、モノづくりが大好きな開発者です。
-                                </p>
+                                <p class="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">熊本を拠点に活動する、モノづくりが大好きな開発者です。</p>
                             </div>
                             <div class="flex justify-center space-x-4 pt-4 border-t border-zinc-200 dark:border-zinc-800">
-                                <a href="https://www.instagram.com/takumi05012/" target="_blank" class="hover:text-green-600 flex items-center justify-center">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg>
-                                </a>
-                                <a href="https://www.youtube.com/@Volvox0612" target="_blank" class="hover:text-green-600 flex items-center justify-center">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 2-2 69.44 69.44 0 0 1 15 0 2 2 0 0 1 2 2 24.12 24.12 0 0 1 0 10 2 2 0 0 1-2 2 69.44 69.44 0 0 1-15 0 2 2 0 0 1-2-2z"></path><polyline points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"></polyline></svg>
-                                </a>
+                                <a href="https://www.instagram.com/takumi05012/" target="_blank" class="hover:text-green-600 flex items-center justify-center"><i data-lucide="instagram"></i></a>
+                                <a href="https://www.youtube.com/@Volvox0612" target="_blank" class="hover:text-green-600 flex items-center justify-center"><i data-lucide="youtube"></i></a>
                             </div>
                         </div>
-
-                        <!-- Hobbies/Daily Life Widget -->
                         <a href="hobbies.html" class="block rounded-2xl overflow-hidden bg-zinc-50/90 dark:bg-zinc-900/90 shadow-xl backdrop-blur-md group cursor-pointer transition-transform duration-300 hover:scale-[1.02]">
                             <div class="h-48 overflow-hidden relative">
-                                <img 
-                                    src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&q=80&w=800" 
-                                    alt="Fishing" 
-                                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                                />
+                                <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&q=80&w=800" alt="Fishing" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
                                 <div class="absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                                     <span class="text-white text-xs font-bold tracking-widest uppercase border-b border-white pb-1">詳細を見る</span>
                                 </div>
@@ -341,42 +163,31 @@
                                     <i data-lucide="arrow-right" class="w-4 h-4 text-zinc-400 group-hover:text-green-600 transition-colors"></i>
                                 </div>
                                 <h5 class="text-lg font-serif">趣味・日常生活</h5>
-                                <p class="text-xs leading-relaxed text-zinc-600 dark:text-zinc-400">
-                                    趣味の釣りや、熊本での何気ない日常生活のひとコマ。クリエイティブな仕事の合間に、自然の中で過ごすリフレッシュの時間は私にとって欠かせない大切な活力源です。
-                                </p>
+                                <p class="text-xs leading-relaxed text-zinc-600 dark:text-zinc-400">趣味の釣りや、熊本での何気ない日常生活のひとコマ。</p>
                             </div>
                         </a>
                     </aside>
-
                 </div>
             </main>
         </div>
     </div>
-
-    <!-- Footer -->
     <footer class="border-t bg-zinc-50 dark:bg-zinc-900 border-zinc-200 dark:border-zinc-800 relative z-20">
         <div class="max-w-6xl mx-auto px-4 py-16 grid grid-cols-1 md:grid-cols-2 gap-12">
-            <div class="space-y-6 text-left">
-                <h5 class="text-2xl font-serif text-left">Portfolio</h5>
-                <p class="text-sm text-zinc-500 text-left leading-relaxed">Built with precision and passion for modern aesthetics.</p>
+            <div class="space-y-6">
+                <h5 class="text-2xl font-serif">Portfolio</h5>
+                <p class="text-sm text-zinc-500 leading-relaxed">Built with precision and passion for modern aesthetics.</p>
             </div>
             <div class="flex flex-col items-start md:items-end">
                 <h5 class="text-sm font-bold uppercase tracking-widest mb-6">Connect</h5>
                 <div class="flex space-x-4">
-                    <a href="https://www.instagram.com/takumi05012/" target="_blank" class="p-3 rounded-full bg-white shadow-sm dark:bg-zinc-800 hover:text-green-600 transition-colors flex items-center justify-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-lg"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg>
-                    </a>
-                    <a href="https://www.youtube.com/@Volvox0612" target="_blank" class="p-3 rounded-full bg-white shadow-sm dark:bg-zinc-800 hover:text-green-600 transition-colors flex items-center justify-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-lg"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 2-2 69.44 69.44 0 0 1 15 0 2 2 0 0 1 2 2 24.12 24.12 0 0 1 0 10 2 2 0 0 1-2 2 69.44 69.44 0 0 1-15 0 2 2 0 0 1-2-2z"></path><polyline points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"></polyline></svg>
-                    </a>
+                    <a href="https://www.instagram.com/takumi05012/" target="_blank" class="p-3 rounded-full bg-white shadow-sm dark:bg-zinc-800 hover:text-green-600 flex items-center justify-center"><i data-lucide="instagram"></i></a>
+                    <a href="https://www.youtube.com/@Volvox0612" target="_blank" class="p-3 rounded-full bg-white shadow-sm dark:bg-zinc-800 hover:text-green-600 flex items-center justify-center"><i data-lucide="youtube"></i></a>
                 </div>
             </div>
         </div>
-        <div class="border-t border-zinc-200 dark:border-zinc-800 py-8 text-center text-[10px] uppercase tracking-[0.2em] text-zinc-400">
-            © 2025 Nagano Takumi Portfolio — All Rights Reserved
-        </div>
+        <div class="border-t border-zinc-200 dark:border-zinc-800 py-8 text-center text-[10px] uppercase tracking-[0.2em] text-zinc-400">© 2025 Nagano Takumi — All Rights Reserved</div>
     </footer>
-
+    <button id="scroll-top-btn" class="fixed bottom-8 right-8 p-4 rounded-full shadow-2xl transition-all duration-300 transform translate-y-12 opacity-0 bg-zinc-900 dark:bg-green-700 hover:bg-green-600 text-white z-50"><i data-lucide="chevron-up"></i></button>
     <script src="https://unpkg.com/lucide@latest"></script>
     <script>
         lucide.createIcons();
@@ -392,7 +203,7 @@
         const scrollTopBtn = document.getElementById('scroll-top-btn');
         const toriIdle = document.getElementById('tori-idle');
         let idleTimer;
-        const showTori = () => toriIdle.classList.add('show');
+        const showTori = () => { toriIdle.classList.add('show'); };
         const hideTori = () => { toriIdle.classList.remove('show'); resetIdleTimer(); };
         const resetIdleTimer = () => { clearTimeout(idleTimer); idleTimer = setTimeout(showTori, 2000); };
         window.addEventListener('scroll', () => {
@@ -400,13 +211,16 @@
             heroHeader.style.opacity = Math.max(0, 1 - scrollPos / 300);
             if (scrollPos > 50) {
                 stickyNav.classList.add('shadow-lg', 'py-2'); stickyNav.classList.remove('py-4');
+                scrollTopBtn.classList.remove('translate-y-12', 'opacity-0'); scrollTopBtn.classList.add('translate-y-0', 'opacity-100');
             } else {
                 stickyNav.classList.remove('shadow-lg', 'py-2'); stickyNav.classList.add('py-4');
+                scrollTopBtn.classList.add('translate-y-12', 'opacity-0'); scrollTopBtn.classList.remove('translate-y-0', 'opacity-100');
             }
             hideTori();
         });
         window.addEventListener('click', hideTori);
         resetIdleTimer();
+        scrollTopBtn.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
     </script>
 </body>
 </html>
