@@ -19,6 +19,8 @@
         .animate-hero-zoom { animation: hero-zoom-out 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
         .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 1rem; box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1); background: #000; }
         .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+        #image-modal { display: none; position: fixed; inset: 0; z-index: 100; background: rgba(0,0,0,0.9); backdrop-filter: blur(10px); align-items: center; justify-content: center; cursor: zoom-out; }
+        #image-modal.show { display: flex; }
     </style>
 </head>
 <body class="transition-colors duration-300 text-zinc-900 dark:text-zinc-100">
@@ -121,7 +123,14 @@
                                 <div class="mb-6"><label class="block text-[10px] uppercase tracking-wider text-zinc-400 mb-1">説明 / Description</label><div class="text-sm leading-relaxed font-medium italic">崩壊スターレイルの「銀狼」MADを制作しました。前作の花火ファンムービーに比べ、エフェクトの使い分けや音声に合わせたカット編集能力が向上しました。</div></div>
                                 <div class="mb-6"><label class="block text-[10px] uppercase tracking-wider text-zinc-400 mb-1">制作時間 / Production Time</label><div class="text-sm font-bold text-green-600">5時間30分</div></div>
                                 <div><label class="block text-[10px] uppercase tracking-wider text-zinc-400 mb-1">編集ソフト / Software</label><div class="flex flex-wrap gap-2 mt-2"><span class="px-2 py-1 bg-zinc-100 dark:bg-zinc-800 rounded text-[10px] font-bold tracking-tighter">CAPCUT</span></div></div>
-                                <div class="pt-4 border-t border-zinc-100 dark:border-zinc-800"><label class="block text-[10px] uppercase tracking-wider text-zinc-400 mb-2">動画リンク / Video Link</label><a href="https://youtu.be/kL-DRakCgIo" target="_blank" class="text-sm font-bold text-green-600 hover:underline break-all block">https://youtu.be/kL-DRakCgIo</a></div>
+                                <div class="pt-4 border-t border-zinc-100 dark:border-zinc-800">
+                                    <label class="block text-[10px] uppercase tracking-wider text-zinc-400 mb-2">動画リンク / Video Link</label>
+                                    <a href="https://youtu.be/kL-DRakCgIo" target="_blank" class="text-sm font-bold text-green-600 hover:underline break-all block mb-4">https://youtu.be/kL-DRakCgIo</a>
+                                    <label class="block text-[10px] uppercase tracking-wider text-zinc-400 mb-2">使用素材 / Material Image</label>
+                                    <div class="rounded-lg overflow-hidden border border-zinc-200 dark:border-zinc-800 cursor-zoom-in" onclick="openImageModal('images/ginnrousozai.png')">
+                                        <img src="images/ginnrousozai.png" alt="Material" class="w-full h-auto hover:opacity-90 transition-opacity">
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -129,14 +138,15 @@
             </main>
         </div>
     </div>
+    <div id="image-modal" onclick="closeImageModal()"><img id="modal-img" src="" class="max-w-[90vw] max-h-[90vh] object-contain shadow-2xl rounded-lg"></div>
     <footer class="border-t bg-zinc-50 dark:bg-zinc-900 border-zinc-200 dark:border-zinc-800 relative z-20">
         <div class="max-w-6xl mx-auto px-4 py-16 grid grid-cols-1 md:grid-cols-2 gap-12 text-left">
             <div class="space-y-6"><h5 class="text-2xl font-serif text-left">Portfolio</h5><p class="text-sm text-zinc-500 leading-relaxed text-left">Built with precision and passion for modern aesthetics.</p></div>
             <div class="flex flex-col items-start md:items-end">
                 <h5 class="text-sm font-bold uppercase tracking-widest mb-6">Connect</h5>
                 <div class="flex space-x-4">
-                    <a href="https://www.instagram.com/takumi05012/" target="_blank" class="p-3 rounded-full bg-white shadow-sm dark:bg-zinc-800 hover:text-green-600 transition-colors flex items-center justify-center shadow-sm"><i data-lucide="instagram"></i></a>
-                    <a href="https://www.youtube.com/@Volvox0612" target="_blank" class="p-3 rounded-full bg-white shadow-sm dark:bg-zinc-800 hover:text-green-600 transition-colors flex items-center justify-center shadow-sm"><i data-lucide="youtube"></i></a>
+                    <a href="https://www.instagram.com/takumi05012/" target="_blank" class="p-3 rounded-full bg-white dark:bg-zinc-800 hover:text-green-600 transition-colors flex items-center justify-center shadow-sm"><i data-lucide="instagram"></i></a>
+                    <a href="https://www.youtube.com/@Volvox0612" target="_blank" class="p-3 rounded-full bg-white dark:bg-zinc-800 hover:text-green-600 transition-colors flex items-center justify-center shadow-sm"><i data-lucide="youtube"></i></a>
                 </div>
             </div>
         </div>
@@ -157,6 +167,10 @@
             else { stickyNav.classList.remove('shadow-lg', 'py-2'); stickyNav.classList.add('py-4'); scrollTopBtn.classList.add('translate-y-12', 'opacity-0'); scrollTopBtn.classList.remove('translate-y-0', 'opacity-100'); }
         });
         scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+        const modal = document.getElementById('image-modal');
+        const modalImg = document.getElementById('modal-img');
+        function openImageModal(src) { modalImg.src = src; modal.classList.add('show'); document.body.style.overflow = 'hidden'; }
+        function closeImageModal() { modal.classList.remove('show'); document.body.style.overflow = ''; }
     </script>
 </body>
 </html>
