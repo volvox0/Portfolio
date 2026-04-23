@@ -8,33 +8,31 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
     <script>
-        tailwind.config = { darkMode: 'class', theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'], serif: ['Playfair Display', 'serif'] } } } }
+        tailwind.config = { darkMode: 'class', theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'], serif: ['Playfair Display', 'serif'], } } } }
     </script>
     <style>
         .lucide { width: 1.25rem; height: 1.25rem; display: inline-block; }
+        .lucide-lg { width: 1.5rem; height: 1.5rem; }
         html { scroll-behavior: smooth; }
         .hero-text-container { opacity: 0; transform: scale(1.25); filter: blur(10px); }
-        @keyframes hero-zoom-out {
-            0% { opacity: 0; transform: scale(1.25); filter: blur(10px); }
-            100% { opacity: 1; transform: scale(1); filter: blur(0); }
-        }
+        @keyframes hero-zoom-out { 0% { opacity: 0; transform: scale(1.25); filter: blur(10px); } 100% { opacity: 1; transform: scale(1); filter: blur(0); } }
         .animate-hero-zoom { animation: hero-zoom-out 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        .blog-card { transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
         .media-container { overflow: hidden; border-radius: 1.25rem; box-shadow: 0 10px 30px -10px rgba(0,0,0,0.2); position: relative; }
-        #image-modal { display: none; position: fixed; inset: 0; z-index: 100; background: rgba(0,0,0,0.9); align-items: center; justify-content: center; cursor: zoom-out; }
+        .spec-label { @apply text-[10px] uppercase tracking-widest text-zinc-400 font-bold mb-1 block; }
+        .spec-value { @apply text-sm font-bold text-zinc-800 dark:text-zinc-200; }
+        #image-modal { display: none; position: fixed; inset: 0; z-index: 100; background: rgba(0,0,0,0.9); backdrop-filter: blur(10px); align-items: center; justify-content: center; cursor: zoom-out; }
         #image-modal.show { display: flex; }
     </style>
 </head>
 <body class="transition-colors duration-300 text-zinc-900 dark:text-zinc-100">
-    <div id="top-bar" class="w-full py-2 border-b bg-zinc-50 dark:bg-zinc-900 border-zinc-200 dark:border-zinc-800 text-xs tracking-widest uppercase">
-        <div class="max-w-6xl mx-auto px-4 flex justify-between items-center">
-            <a href="index.html" class="hover:text-green-600 font-bold">Home</a>
-            <div class="flex space-x-4">
-                <a href="https://www.youtube.com/@Volvox0612" target="_blank"><i data-lucide="youtube"></i></a>
-                <a href="https://www.instagram.com/takumi05012/" target="_blank"><i data-lucide="instagram"></i></a>
-            </div>
+    <div id="top-bar" class="w-full py-2 border-b bg-zinc-50 dark:bg-zinc-900 border-zinc-200 dark:border-zinc-800 relative z-20">
+        <div class="max-w-6xl mx-auto px-4 flex justify-between items-center text-xs tracking-widest uppercase">
+            <div class="flex space-x-6"><a href="index.html" class="hover:text-green-600 transition-colors font-bold">Home</a></div>
+            <div class="flex space-x-4"><a href="https://www.youtube.com/@Volvox0612" target="_blank" class="hover:text-green-600"><i data-lucide="youtube"></i></a><a href="https://www.instagram.com/takumi05012/" target="_blank" class="hover:text-green-600"><i data-lucide="instagram"></i></a></div>
         </div>
     </div>
-    <header id="hero-header" class="relative py-32 text-center bg-cover bg-center overflow-hidden" style="background-image: url('images/header.png');">
+    <header id="hero-header" class="relative py-32 text-center bg-cover bg-center bg-no-repeat z-10 overflow-hidden" style="background-image: url('images/header.png');">
         <div class="absolute inset-0 bg-white/20 dark:bg-black/30"></div>
         <div class="relative z-10 hero-text-container animate-hero-zoom">
             <h1 class="text-6xl md:text-8xl font-serif mb-2 tracking-tighter">Hobbies & Life</h1>
@@ -42,42 +40,55 @@
         </div>
     </header>
     <nav id="sticky-nav" class="sticky top-0 z-50 transition-all duration-300 py-4 bg-white/95 dark:bg-zinc-900/95 backdrop-blur-md border-y border-zinc-100 dark:border-zinc-800">
-        <div class="max-w-6xl mx-auto px-4 flex justify-between items-center text-[10px] font-bold uppercase tracking-widest">
-            <div class="flex space-x-8"><a href="video-editing.html" class="hover:text-green-600">Video</a><a href="graphic-design.html" class="hover:text-green-600">Graphic</a><a href="app-development.html" class="hover:text-green-600">App</a><a href="hobbies.html" class="text-green-600">Hobby</a></div>
-            <button id="dark-mode-toggle"><i id="dark-icon" data-lucide="moon"></i><i id="light-icon" data-lucide="sun" class="hidden"></i></button>
+        <div class="max-w-6xl mx-auto px-4 flex justify-between items-center">
+            <div class="flex space-x-8 text-[10px] uppercase tracking-[0.2em] font-bold">
+                <a href="video-editing.html" class="hover:text-green-600 transition-colors">Video</a>
+                <a href="graphic-design.html" class="hover:text-green-600 transition-colors">Graphic</a>
+                <a href="app-development.html" class="hover:text-green-600 transition-colors">App</a>
+                <a href="hobbies.html" class="text-green-600">Hobby</a>
+            </div>
+            <button id="dark-mode-toggle" class="p-2 hover:text-green-600 transition-colors"><i id="dark-icon" data-lucide="moon"></i><i id="light-icon" data-lucide="sun" class="hidden"></i></button>
         </div>
     </nav>
     <div class="bg-[url('images/back.png')] bg-cover bg-center bg-fixed min-h-screen">
         <div class="bg-white/40 dark:bg-zinc-950/40 backdrop-blur-[2px] min-h-screen py-16">
             <main class="max-w-5xl mx-auto px-4 space-y-24">
-                <!-- Blog Post 1: Warframe -->
-                <article class="space-y-8">
-                    <h2 class="text-4xl md:text-5xl font-serif leading-tight">Warframe Items Shop - 自作情報サイトの公開</h2>
-                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start bg-white/70 dark:bg-zinc-900/70 p-8 rounded-[2.5rem] shadow-2xl border border-white/20 dark:border-zinc-800/50">
-                        <div class="lg:col-span-7"><div class="media-container aspect-video"><img src="images/shop1.jpeg" class="w-full h-full object-cover"></div></div>
+                <article class="blog-card space-y-8">
+                    <div class="text-center md:text-left space-y-2">
+                        <div class="flex items-center justify-center md:justify-start space-x-3 mb-2"><span class="px-3 py-1 bg-blue-600 text-[9px] text-white font-black uppercase tracking-widest rounded-full">Development</span><span class="text-[10px] text-zinc-400 font-bold uppercase tracking-[0.2em]">April 21, 2026</span></div>
+                        <h2 class="text-4xl md:text-5xl font-serif leading-tight">Warframe Items Shop - 自作情報サイトの公開</h2>
+                    </div>
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start bg-white/70 dark:bg-zinc-900/70 backdrop-blur-md p-8 rounded-[2.5rem] shadow-2xl border border-white/20 dark:border-zinc-800/50">
+                        <div class="lg:col-span-7"><div class="media-container aspect-video bg-zinc-200 dark:bg-zinc-800"><img src="images/shop1.jpeg" alt="Warframe Shop Site" class="w-full h-full object-cover"></div></div>
                         <div class="lg:col-span-5 space-y-6">
-                            <p class="text-sm md:text-base text-zinc-600 dark:text-zinc-400 leading-relaxed font-medium">大好きなゲーム「Warframe」のアイテム情報を集約した個人ショップ風サイトを制作しました。</p>
-                            <a href="https://volvox0.shop/" target="_blank" class="flex items-center justify-between p-4 bg-zinc-900 text-white rounded-2xl hover:bg-green-600 shadow-lg"><span>https://volvox0.shop/</span><i data-lucide="external-link"></i></a>
+                            <div class="space-y-4">
+                                <h3 class="text-xs font-bold uppercase tracking-widest text-green-600 flex items-center"><i data-lucide="info" class="mr-2 w-4 h-4"></i> About this project</h3>
+                                <p class="text-sm md:text-base text-zinc-600 dark:text-zinc-400 leading-relaxed font-medium">大好きなゲーム「Warframe」のアイテム情報を集約した個人ショップ風サイトを制作しました。</p>
+                            </div>
+                            <div class="pt-6 border-t border-zinc-200 dark:border-zinc-800"><p class="text-[10px] text-zinc-400 uppercase tracking-widest mb-3 font-bold">Visit Website</p><a href="https://volvox0.shop/" target="_blank" class="flex items-center justify-between p-4 bg-zinc-900 dark:bg-green-700 text-white rounded-2xl hover:bg-green-600 transition-colors group shadow-lg"><span class="font-bold tracking-tight">https://volvox0.shop/</span><i data-lucide="external-link" class="w-5 h-5"></i></a></div>
                         </div>
                     </div>
                 </article>
-                <hr class="border-zinc-200 dark:border-zinc-800 opacity-30">
-                <!-- Blog Post 2: PC Build -->
-                <article class="space-y-8">
-                    <h2 class="text-4xl md:text-5xl font-serif leading-tight">「絶対的安定」を求めた自作PC構成とこだわり</h2>
-                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start bg-white/70 dark:bg-zinc-900/70 p-8 rounded-[2.5rem] shadow-2xl">
+                <article class="blog-card space-y-8">
+                    <div class="text-center md:text-left space-y-2">
+                        <div class="flex items-center justify-center md:justify-start space-x-3 mb-2"><span class="px-3 py-1 bg-orange-600 text-[9px] text-white font-black uppercase tracking-widest rounded-full">PC Build</span><span class="text-[10px] text-zinc-400 font-bold uppercase tracking-[0.2em]">April 21, 2026</span></div>
+                        <h2 class="text-4xl md:text-5xl font-serif leading-tight">「絶対的安定」を求めた自作PC構成とこだわり</h2>
+                    </div>
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start bg-white/70 dark:bg-zinc-900/70 backdrop-blur-md p-8 rounded-[2.5rem] shadow-2xl border border-white/20 dark:border-zinc-800/50">
                         <div class="lg:col-span-6">
-                            <div class="media-container aspect-[3/4] bg-black relative group overflow-hidden">
-                                <div id="pc-slider" class="w-full h-full cursor-zoom-in" onclick="openModal()"><img id="slide-img" src="images/status.png" class="w-full h-full object-contain transition-opacity duration-500"></div>
-                                <button onclick="prevSlide()" class="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/20 rounded-full flex items-center justify-center text-white"><i data-lucide="chevron-left"></i></button>
-                                <button onclick="nextSlide()" class="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/20 rounded-full flex items-center justify-center text-white"><i data-lucide="chevron-right"></i></button>
+                            <div class="media-container aspect-[3/4] bg-black group overflow-hidden">
+                                <div id="pc-slider" class="relative w-full h-full cursor-zoom-in" onclick="openModal()"><img id="slide-img" src="images/status.png" class="w-full h-full object-contain transition-opacity duration-500"></div>
+                                <button onclick="prevSlide()" class="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center text-white"><i data-lucide="chevron-left"></i></button>
+                                <button onclick="nextSlide()" class="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center text-white"><i data-lucide="chevron-right"></i></button>
                             </div>
                         </div>
                         <div class="lg:col-span-6 space-y-8">
-                            <p class="text-sm md:text-base leading-relaxed text-zinc-600 dark:text-zinc-400 font-medium">長時間の動画エンコードや複雑なMOD環境下でも決して揺るがない、**『絶対的な安定性』**を最優先したビルドです。</p>
+                            <div class="space-y-4"><h3 class="text-xs font-bold uppercase tracking-widest text-green-600 flex items-center"><i data-lucide="cpu" class="mr-2 w-4 h-4"></i> System Concept</h3><p class="text-sm md:text-base text-zinc-600 dark:text-zinc-400 font-medium">長時間の動画エンコードや複雑なMOD環境下でも決して揺るがない、**『絶対的な安定性』**を最優先したビルドです。</p></div>
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                <div class="p-4 rounded-2xl bg-blue-50/50 dark:bg-blue-900/10 border border-blue-100/50 dark:border-blue-900/20"><p class="text-[10px] text-zinc-400 font-bold uppercase">CPU</p><p class="text-sm font-bold">Intel Core i7-14700F</p></div>
-                                <div class="p-4 rounded-2xl bg-red-50/50 dark:bg-red-900/10 border border-red-100/50 dark:border-red-900/20"><p class="text-[10px] text-zinc-400 font-bold uppercase">GPU</p><p class="text-sm font-bold">Radeon RX 6800 XT</p></div>
+                                <div class="p-4 rounded-2xl bg-blue-50 dark:bg-blue-900/10 border border-blue-100 dark:border-blue-900/20"><span class="spec-label text-blue-600">CPU</span><p class="spec-value">Intel Core i7-14700F</p></div>
+                                <div class="p-4 rounded-2xl bg-red-50 dark:bg-red-900/10 border border-red-100 dark:border-red-900/20"><span class="spec-label text-red-600">GPU</span><p class="spec-value">Radeon RX 6800 XT</p></div>
+                                <div class="p-4 rounded-2xl bg-zinc-100/50 dark:bg-zinc-800/50 border border-zinc-200/50"><span class="spec-label">Memory</span><p class="spec-value">64GB (Micron Tech)</p></div>
+                                <div class="p-4 rounded-2xl bg-green-50 dark:bg-green-900/10 border border-green-100 md:col-span-2"><span class="spec-label text-green-600">Total Storage</span><p class="spec-value">2.33 TB</p></div>
                             </div>
                         </div>
                     </div>
@@ -86,20 +97,38 @@
         </div>
     </div>
     <div id="image-modal" onclick="closeModal()"><img id="modal-img" src="" class="max-w-[90vw] max-h-[90vh] object-contain shadow-2xl rounded-lg"></div>
+    <footer class="border-t bg-zinc-50 dark:bg-zinc-900 border-zinc-200 dark:border-zinc-800 relative z-20">
+        <div class="max-w-6xl mx-auto px-4 py-16 grid grid-cols-1 md:grid-cols-2 gap-12 text-left">
+            <div class="space-y-6"><h5 class="text-2xl font-serif">Portfolio</h5><p class="text-sm text-zinc-500 leading-relaxed">Built with precision and passion for modern aesthetics.</p></div>
+            <div class="flex flex-col items-start md:items-end">
+                <h5 class="text-sm font-bold uppercase tracking-widest mb-6">Connect</h5>
+                <div class="flex space-x-4"><a href="https://www.instagram.com/takumi05012/" target="_blank" class="p-3 rounded-full bg-white dark:bg-zinc-800 flex items-center justify-center"><i data-lucide="instagram"></i></a><a href="https://www.youtube.com/@Volvox0612" target="_blank" class="p-3 rounded-full bg-white dark:bg-zinc-800 flex items-center justify-center"><i data-lucide="youtube"></i></a></div>
+            </div>
+        </div>
+        <div class="border-t border-zinc-200 dark:border-zinc-800 py-8 text-center text-[10px] uppercase tracking-[0.2em] text-zinc-400">© 2025 Nagano Takumi</div>
+    </footer>
+    <button id="scroll-top-btn" class="fixed bottom-8 right-8 p-4 rounded-full shadow-2xl transition-all duration-300 transform translate-y-12 opacity-0 bg-zinc-900 dark:bg-green-700 hover:bg-green-600 text-white z-50"><i data-lucide="chevron-up"></i></button>
     <script>
         lucide.createIcons();
-        document.getElementById('dark-mode-toggle').addEventListener('click', () => { document.documentElement.classList.toggle('dark'); document.getElementById('dark-icon').classList.toggle('hidden'); document.getElementById('light-icon').classList.toggle('hidden'); lucide.createIcons(); });
+        const darkModeToggle = document.getElementById('dark-mode-toggle');
+        darkModeToggle.addEventListener('click', () => { document.documentElement.classList.toggle('dark'); document.getElementById('dark-icon').classList.toggle('hidden'); document.getElementById('light-icon').classList.toggle('hidden'); lucide.createIcons(); });
+        const heroHeader = document.getElementById('hero-header');
+        window.addEventListener('scroll', () => {
+            const scrollPos = window.scrollY;
+            heroHeader.style.opacity = Math.max(0, 1 - scrollPos / 300);
+            if (scrollPos > 50) { document.getElementById('sticky-nav').classList.add('shadow-lg', 'py-2'); document.getElementById('scroll-top-btn').classList.remove('translate-y-12', 'opacity-0'); }
+            else { document.getElementById('sticky-nav').classList.remove('shadow-lg', 'py-2'); document.getElementById('scroll-top-btn').classList.add('translate-y-12', 'opacity-0'); }
+        });
+        document.getElementById('scroll-top-btn').addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
         const slides = ['images/status.png', 'images/pc.jpg', 'images/cpu.jpg'];
         let currentSlide = 0;
-        function updateSlide() {
-            const img = document.getElementById('slide-img');
-            img.style.opacity = 0;
-            setTimeout(() => { img.src = slides[currentSlide]; img.style.opacity = 1; }, 300);
-        }
+        const slideImg = document.getElementById('slide-img');
+        function updateSlide() { slideImg.style.opacity = 0; setTimeout(() => { slideImg.src = slides[currentSlide]; slideImg.style.opacity = 1; }, 300); }
         function nextSlide() { currentSlide = (currentSlide + 1) % slides.length; updateSlide(); }
         function prevSlide() { currentSlide = (currentSlide - 1 + slides.length) % slides.length; updateSlide(); }
-        function openModal() { document.getElementById('modal-img').src = slides[currentSlide]; document.getElementById('image-modal').classList.add('show'); document.body.style.overflow = 'hidden'; }
-        function closeModal() { document.getElementById('image-modal').classList.remove('show'); document.body.style.overflow = ''; }
+        const modal = document.getElementById('image-modal');
+        function openModal() { document.getElementById('modal-img').src = slides[currentSlide]; modal.classList.add('show'); document.body.style.overflow = 'hidden'; }
+        function closeModal() { modal.classList.remove('show'); document.body.style.overflow = ''; }
     </script>
 </body>
 </html>
