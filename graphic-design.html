@@ -15,10 +15,7 @@
         .lucide-lg { width: 1.5rem; height: 1.5rem; }
         html { scroll-behavior: smooth; }
         .hero-text-container { opacity: 0; transform: scale(1.25); filter: blur(10px); }
-        @keyframes hero-zoom-out {
-            0% { opacity: 0; transform: scale(1.25); filter: blur(10px); }
-            100% { opacity: 1; transform: scale(1); filter: blur(0); }
-        }
+        @keyframes hero-zoom-out { 0% { opacity: 0; transform: scale(1.25); filter: blur(10px); } 100% { opacity: 1; transform: scale(1); filter: blur(0); } }
         .animate-hero-zoom { animation: hero-zoom-out 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
         .img-zoom-container { overflow: hidden; border-radius: 1rem; }
         .img-zoom { transition: transform 0.5s ease; }
@@ -57,14 +54,26 @@
         <div class="bg-white/40 dark:bg-zinc-950/40 backdrop-blur-[2px] min-h-screen py-16">
             <main class="max-w-6xl mx-auto px-4 space-y-24">
                 <section class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-                    <div class="lg:col-span-8"><div class="img-zoom-container shadow-2xl border border-zinc-200 dark:border-zinc-800"><img src="images/0421.png" alt="Project 1" class="w-full h-auto img-zoom"></div></div>
+                    <div class="lg:col-span-8"><div class="img-zoom-container shadow-2xl border border-zinc-200 dark:border-zinc-800"><img src="images/0421.png" alt="Project" class="w-full h-auto img-zoom"></div></div>
                     <div class="lg:col-span-4 space-y-8">
                         <div class="bg-white/80 dark:bg-zinc-900/80 backdrop-blur-md p-8 rounded-2xl shadow-xl border border-white/20 dark:border-zinc-800/50">
                             <h3 class="text-xs font-bold uppercase tracking-widest text-green-600 flex items-center border-b border-green-600/20 pb-2 mb-4"><i data-lucide="layout" class="mr-2 w-4 h-4"></i> Design Details</h3>
-                            <div class="mb-8"><label class="block text-[10px] uppercase tracking-wider text-zinc-400 mb-2">説明 / Description</label><p class="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400 font-medium">ゲームのワンシーンを臨場感のあるデザインに仕上げました。素材の切り抜きやエフェクト調整に注力しています。</p></div>
+                            <div class="mb-8"><label class="block text-[10px] uppercase tracking-wider text-zinc-400 mb-2">説明 / Description</label><p class="text-sm font-medium">ゲームのワンシーンに加工を施し、臨場感のあるデザインに仕上げました。素材の切り抜きや個別のエフェクト調整を丁寧に行ったため、作り込みに時間をかけています。</p></div>
                             <div class="mb-8"><label class="block text-[10px] uppercase tracking-wider text-zinc-400 mb-1">制作時間 / Production Time</label><div class="text-sm font-bold text-green-600">約1時間</div></div>
-                            <div class="mb-8"><label class="block text-[10px] uppercase tracking-wider text-zinc-400 mb-3">使用素材 / Materials</label><div class="grid grid-cols-2 gap-2"><div class="aspect-square bg-zinc-100 dark:bg-zinc-800 rounded-md overflow-hidden border border-zinc-200 dark:border-zinc-700"><img src="images/sozai1.png" class="w-full h-full object-cover transition-all"></div><div class="aspect-square bg-zinc-100 dark:bg-zinc-800 rounded-md overflow-hidden border border-zinc-200 dark:border-zinc-700"><img src="images/sozai2.png" class="w-full h-full object-cover transition-all"></div></div></div>
-                            <div><label class="block text-[10px] uppercase tracking-wider text-zinc-400 mb-2">使用ツール / Tools</label><div class="flex flex-wrap gap-2"><span class="px-2 py-1 bg-zinc-100 dark:bg-zinc-800 rounded text-[10px] font-bold tracking-tighter uppercase text-zinc-600 dark:text-zinc-300">CapCut</span></div></div>
+                            <div class="mb-8"><label class="block text-[10px] uppercase tracking-wider text-zinc-400 mb-3">使用素材 / Materials</label><div class="grid grid-cols-2 gap-2"><div class="aspect-square bg-zinc-100 dark:bg-zinc-800 rounded-md overflow-hidden"><img src="images/sozai1.png" class="w-full h-full object-cover"></div><div class="aspect-square bg-zinc-100 dark:bg-zinc-800 rounded-md overflow-hidden"><img src="images/sozai2.png" class="w-full h-full object-cover"></div></div></div>
+                            <div><label class="block text-[10px] uppercase tracking-wider text-zinc-400 mb-2">使用ツール / Tools</label><div class="flex flex-wrap gap-2"><span class="px-2 py-1 bg-zinc-100 dark:bg-zinc-800 rounded text-[10px] font-bold uppercase">CapCut</span></div></div>
+                        </div>
+                    </div>
+                </section>
+                <hr class="border-zinc-200 dark:border-zinc-800">
+                <section class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                    <div class="lg:col-span-8"><div class="img-zoom-container shadow-2xl border border-zinc-200 dark:border-zinc-800"><img src="images/塩パンバナー.png" alt="Project" class="w-full h-auto img-zoom"></div></div>
+                    <div class="lg:col-span-4 space-y-8">
+                        <div class="bg-white/80 dark:bg-zinc-900/80 backdrop-blur-md p-8 rounded-2xl shadow-xl border border-white/20 dark:border-zinc-800/50">
+                            <h3 class="text-xs font-bold uppercase tracking-widest text-green-600 flex items-center border-b border-green-600/20 pb-2 mb-4"><i data-lucide="layout" class="mr-2 w-4 h-4"></i> Design Details</h3>
+                            <div class="mb-8"><label class="block text-[10px] uppercase tracking-wider text-zinc-400 mb-2">説明 / Description</label><p class="text-sm font-medium">授業内で制作した塩パンのプロモーションバナーです。</p></div>
+                            <div class="mb-8"><label class="block text-[10px] uppercase tracking-wider text-zinc-400 mb-1">制作時間 / Production Time</label><div class="text-sm font-bold text-green-600">約3時間</div></div>
+                            <div><label class="block text-[10px] uppercase tracking-wider text-zinc-400 mb-2">使用ツール / Tools</label><div class="flex flex-wrap gap-2"><span class="px-2 py-1 bg-zinc-100 dark:bg-zinc-800 rounded text-[10px] font-bold uppercase">Adobe Illustrator</span></div></div>
                         </div>
                     </div>
                 </section>
@@ -74,7 +83,7 @@
     </div>
     <footer class="border-t bg-zinc-50 dark:bg-zinc-900 border-zinc-200 dark:border-zinc-800 relative z-20">
         <div class="max-w-6xl mx-auto px-4 py-16 grid grid-cols-1 md:grid-cols-2 gap-12 text-left">
-            <div class="space-y-6"><h5 class="text-2xl font-serif">Portfolio</h5><p class="text-sm text-zinc-500">Built with precision and passion for modern aesthetics.</p></div>
+            <div class="space-y-6"><h5 class="text-2xl font-serif text-left">Portfolio</h5><p class="text-sm text-zinc-500 text-left leading-relaxed">Built with precision and passion for modern aesthetics.</p></div>
             <div class="flex flex-col items-start md:items-end">
                 <h5 class="text-sm font-bold uppercase tracking-widest mb-6">Connect</h5>
                 <div class="flex space-x-4">
@@ -89,25 +98,15 @@
     <script>
         lucide.createIcons();
         const darkModeToggle = document.getElementById('dark-mode-toggle');
-        darkModeToggle.addEventListener('click', () => {
-            document.documentElement.classList.toggle('dark');
-            document.getElementById('dark-icon').classList.toggle('hidden');
-            document.getElementById('light-icon').classList.toggle('hidden');
-            lucide.createIcons();
-        });
+        darkModeToggle.addEventListener('click', () => { document.documentElement.classList.toggle('dark'); document.getElementById('dark-icon').classList.toggle('hidden'); document.getElementById('light-icon').classList.toggle('hidden'); lucide.createIcons(); });
         const heroHeader = document.getElementById('hero-header');
         const stickyNav = document.getElementById('sticky-nav');
         const scrollTopBtn = document.getElementById('scroll-top-btn');
         window.addEventListener('scroll', () => {
             const scrollPos = window.scrollY;
             heroHeader.style.opacity = Math.max(0, 1 - scrollPos / 300);
-            if (scrollPos > 50) {
-                stickyNav.classList.add('shadow-lg', 'py-2'); stickyNav.classList.remove('py-4');
-                scrollTopBtn.classList.remove('translate-y-12', 'opacity-0'); scrollTopBtn.classList.add('translate-y-0', 'opacity-100');
-            } else {
-                stickyNav.classList.remove('shadow-lg', 'py-2'); stickyNav.classList.add('py-4');
-                scrollTopBtn.classList.add('translate-y-12', 'opacity-0'); scrollTopBtn.classList.remove('translate-y-0', 'opacity-100');
-            }
+            if (scrollPos > 50) { stickyNav.classList.add('shadow-lg', 'py-2'); stickyNav.classList.remove('py-4'); scrollTopBtn.classList.remove('translate-y-12', 'opacity-0'); scrollTopBtn.classList.add('translate-y-0', 'opacity-100'); }
+            else { stickyNav.classList.remove('shadow-lg', 'py-2'); stickyNav.classList.add('py-4'); scrollTopBtn.classList.add('translate-y-12', 'opacity-0'); scrollTopBtn.classList.remove('translate-y-0', 'opacity-100'); }
         });
         scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
     </script>
